@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Github, Linkedin, Mail, Send } from 'lucide-react'
+import { Github, Linkedin, Mail, Send, Phone } from 'lucide-react'
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
@@ -55,7 +55,7 @@ export default function Contact() {
                   </div>
                 </a>
                 <a
-                  href="https://linkedin.com/in/pratstick"
+                  href="https://linkedin.com/in/pratyush-k-/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group"
@@ -65,11 +65,11 @@ export default function Contact() {
                   </span>
                   <div>
                     <p className="text-xs text-gray-500 font-mono">LinkedIn</p>
-                    <p className="text-sm font-medium">linkedin.com/in/pratstick</p>
+                    <p className="text-sm font-medium">linkedin.com/in/pratyush-k-/</p>
                   </div>
                 </a>
                 <a
-                  href="mailto:pratstick@gmail.com"
+                  href="mailto:pratyushk2005@gmail.com"
                   className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group"
                 >
                   <span className="w-10 h-10 glass rounded-xl flex items-center justify-center group-hover:bg-white/10 transition-colors">
@@ -77,7 +77,19 @@ export default function Contact() {
                   </span>
                   <div>
                     <p className="text-xs text-gray-500 font-mono">Email</p>
-                    <p className="text-sm font-medium">pratstick@gmail.com</p>
+                    <p className="text-sm font-medium">pratyushk2005@gmail.com</p>
+                  </div>
+                </a>
+                <a
+                  href="tel:+919022904732"
+                  className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group"
+                >
+                  <span className="w-10 h-10 glass rounded-xl flex items-center justify-center group-hover:bg-white/10 transition-colors">
+                    <Phone size={18} />
+                  </span>
+                  <div>
+                    <p className="text-xs text-gray-500 font-mono">Phone</p>
+                    <p className="text-sm font-medium">+91 9022904732</p>
                   </div>
                 </a>
               </div>

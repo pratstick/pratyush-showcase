@@ -57,7 +57,9 @@ export default function Hero() {
           </a>
           {/* TODO: Replace href="#" with your resume PDF path, e.g. "/resume.pdf" */}
           <a
-            href="#"
+            href="https://drive.google.com/file/d/1T0EM5ru9YewWYaYakylpFoJb6EFJ__PM/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full sm:w-auto px-8 py-3.5 glass hover:bg-white/10 text-gray-200 font-medium rounded-xl transition-all duration-200 hover:-translate-y-0.5 flex items-center justify-center gap-2"
             aria-label="Download resume"
           >
@@ -78,7 +80,7 @@ export default function Hero() {
             <Github size={20} />
           </a>
           <a
-            href="https://linkedin.com/in/pratstick"
+            href="https://linkedin.com/in/pratyush-k-/"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 glass rounded-xl text-gray-400 hover:text-white hover:bg-white/10 transition-all duration-200 hover:-translate-y-0.5"
@@ -87,7 +89,7 @@ export default function Hero() {
             <Linkedin size={20} />
           </a>
           <a
-            href="mailto:pratstick@gmail.com"
+            href="mailto:pratyushk2005@gmail.com"
             className="p-3 glass rounded-xl text-gray-400 hover:text-white hover:bg-white/10 transition-all duration-200 hover:-translate-y-0.5"
             aria-label="Email"
           >
