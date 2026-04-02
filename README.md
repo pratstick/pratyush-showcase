@@ -92,6 +92,31 @@ npm run preview
 | SEO meta tags | `index.html` |
 | Colour palette | `src/index.css` (`@theme` block) |
 
+## 🌐 Deployment
+
+### GitHub Pages (recommended)
+
+```bash
+# 1. Add the gh-pages package
+npm install -D gh-pages
+
+# 2. Add these scripts to package.json
+#    "predeploy": "npm run build",
+#    "deploy": "gh-pages -d dist"
+
+# 3. Set the base in vite.config.js
+#    base: '/pratyush-showcase/'
+
+# 4. Deploy
+npm run deploy
+```
+
+### Vercel / Netlify
+
+Both platforms auto-detect Vite apps. Just connect your GitHub repo and set:
+- **Build command**: `npm run build`
+- **Output directory**: `dist`
+
 ## 📦 Tech Stack
 
 - [React 19](https://react.dev/) — UI library
