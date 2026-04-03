@@ -47,15 +47,15 @@ const projects = [
     id: 4,
     title: 'Rabin-Karp XOR Filter Enhancement',
     description:
-      'Academic research implementing an XOR Filter–enhanced Rabin-Karp string-matching algorithm. Achieved 47.53% runtime improvement over the naive baseline and 9% over the Bloom filter variant. Published in IJCSR.',
+      'A performance-optimized implementation of the Rabin-Karp string-matching algorithm using XOR Filters. Reduces hash collisions and improves runtime efficiency compared to standard and Bloom filter variants.',
     icon: Search,
     iconBg: 'bg-purple-600/20',
     iconColor: 'text-purple-400',
-    tags: ['Python', 'Algorithms', 'XOR Filter', 'Probabilistic DS', 'Research'],
+    tags: ['Python', 'Algorithms', 'XOR Filter', 'Probabilistic DS', 'Optimization'],
     tagColor: 'bg-purple-500/10 text-purple-300 border-purple-500/20',
     github: 'https://github.com/pratstick/rabin-karp-xor-filter-enhancement',
     demo: null,
-    highlight: 'Research',
+    highlight: 'Algorithms',
   },
 ]
 

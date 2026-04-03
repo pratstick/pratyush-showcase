@@ -1,4 +1,4 @@
-import { Code2, Cpu, Globe, BookOpen } from 'lucide-react'
+import { Code2, Cpu, Globe, Zap } from 'lucide-react'
 
 const highlights = [
   {
@@ -17,9 +17,9 @@ const highlights = [
     desc: 'Designing platforms that connect people and create meaningful impact.',
   },
   {
-    icon: BookOpen,
-    title: 'Research & Algorithms',
-    desc: 'Publishing academic work on algorithm optimization and probabilistic data structures.',
+    icon: Zap,
+    title: 'Clean & Scalable Code',
+    desc: 'Writing efficient, maintainable code with a focus on performance and best practices.',
   },
 ]
 
@@ -52,16 +52,10 @@ export default function About() {
                 building a neighborhood help network, or optimizing supply chains with XGBoost and
                 Prophet — I enjoy tackling real problems with elegant, maintainable code.
               </p>
-              <p>
-                I also have an academic side: my research on enhancing the Rabin-Karp algorithm
-                with XOR Filters has been published in the{' '}
-                <em>International Journal of Computing Sciences Research</em>, achieving a 47%+
-                runtime improvement over the baseline.
-              </p>
             </div>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              {['Open to Opportunities', 'Research-Oriented', 'Impact-Driven'].map((tag) => (
+              {['Open to Opportunities', 'Product-Focused', 'Impact-Driven'].map((tag) => (
                 <span
                   key={tag}
                   className="px-3 py-1.5 text-xs font-mono text-indigo-300 glass rounded-full"
