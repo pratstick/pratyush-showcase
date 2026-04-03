@@ -1,21 +1,50 @@
 import { useState } from 'react'
+import emailjs from '@emailjs/browser'
 import { Github, Linkedin, Mail, Send, Phone } from 'lucide-react'
+
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+
+if (import.meta.env.DEV && (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY)) {
+  console.warn(
+    'Contact form: EmailJS environment variables are not configured.\n' +
+    'Copy .env.local.example to .env.local and fill in your EmailJS credentials.',
+  )
+}
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
-  const [submitted, setSubmitted] = useState(false)
+  const [status, setStatus] = useState('idle') // 'idle' | 'sending' | 'success' | 'error'
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // TODO: Connect to a backend or form service (e.g. Formspree, EmailJS) to actually send messages.
-    console.warn('Contact form: no backend configured — message not sent.')
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 4000)
-    setFormData({ name: '', email: '', message: '' })
+    setStatus('sending')
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_name: 'Pratyush',
+        },
+        EMAILJS_PUBLIC_KEY,
+      )
+      setStatus('success')
+      setFormData({ name: '', email: '', message: '' })
+      setTimeout(() => setStatus('idle'), 5000)
+    } catch (err) {
+      console.error('EmailJS send error:', err)
+      setStatus('error')
+      setTimeout(() => setStatus('idle'), 5000)
+    }
   }
 
   return (
@@ -147,9 +176,12 @@ export default function Contact() {
             </div>
             <button
               type="submit"
-              className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-medium rounded-xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/25"
+              disabled={status === 'sending'}
+              className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-indigo-600 hover:bg-indigo-500 disabled:opacity-60 disabled:cursor-not-allowed text-white font-medium rounded-xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/25"
             >
-              {submitted ? (
+              {status === 'sending' ? (
+                <span>Sending…</span>
+              ) : status === 'success' ? (
                 <>
                   <span>Message Sent!</span>
                   <span>✓</span>
@@ -161,9 +193,14 @@ export default function Contact() {
                 </>
               )}
             </button>
-            {submitted && (
+            {status === 'success' && (
               <p className="text-center text-sm text-emerald-400 animate-fade-in">
                 Thanks! I&apos;ll get back to you soon.
+              </p>
+            )}
+            {status === 'error' && (
+              <p className="text-center text-sm text-red-400 animate-fade-in">
+                Something went wrong. Please try again or email me directly.
               </p>
             )}
           </form>
