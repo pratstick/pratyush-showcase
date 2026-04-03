@@ -1,4 +1,4 @@
-import { Github, ExternalLink, Cpu, Globe, Search, BarChart3 } from 'lucide-react'
+import { Github, ExternalLink, Cpu, Globe, Search, BarChart3, FileText, BookOpen, Network, Dumbbell, FileSearch, Bot } from 'lucide-react'
 
 const projects = [
   {
@@ -56,6 +56,90 @@ const projects = [
     github: 'https://github.com/pratstick/rabin-karp-xor-filter-enhancement',
     demo: null,
     highlight: 'Algorithms',
+  },
+  {
+    id: 5,
+    title: 'AI Invoice Extractor',
+    description:
+      'Streamlit web app that extracts structured data from PDF and image invoices using Tesseract OCR and Google Gemini AI. Supports one-click export to CSV/JSON with robust error handling and a clean interactive interface.',
+    icon: FileText,
+    iconBg: 'bg-orange-600/20',
+    iconColor: 'text-orange-400',
+    tags: ['Python', 'Streamlit', 'Gemini AI', 'Tesseract OCR', 'Google AI'],
+    tagColor: 'bg-orange-500/10 text-orange-300 border-orange-500/20',
+    github: 'https://github.com/pratstick/AI-Invoice-Extractor',
+    demo: null,
+    highlight: 'AI / OCR',
+  },
+  {
+    id: 6,
+    title: 'PaperPulse',
+    description:
+      'Full-stack AI research digest that ingests arXiv papers, generates LLM summaries with relevance scoring, and delivers a personalized daily feed. Powered by FastAPI, Next.js 16, and TanStack Query with pluggable OpenAI/Anthropic providers.',
+    icon: BookOpen,
+    iconBg: 'bg-sky-600/20',
+    iconColor: 'text-sky-400',
+    tags: ['FastAPI', 'Next.js', 'TypeScript', 'OpenAI', 'SQLAlchemy', 'Tailwind CSS'],
+    tagColor: 'bg-sky-500/10 text-sky-300 border-sky-500/20',
+    github: 'https://github.com/pratstick/PaperPulse',
+    demo: null,
+    highlight: 'Full Stack',
+  },
+  {
+    id: 7,
+    title: 'Multi-Agent Doc Intelligence',
+    description:
+      'LangGraph-orchestrated multi-agent RAG pipeline for technical documentation Q&A. A router agent classifies queries as conceptual or implementation and dispatches to specialized agents backed by FAISS vector retrieval and Groq LLM inference.',
+    icon: Network,
+    iconBg: 'bg-violet-600/20',
+    iconColor: 'text-violet-400',
+    tags: ['Python', 'LangGraph', 'FAISS', 'Groq', 'RAG', 'sentence-transformers'],
+    tagColor: 'bg-violet-500/10 text-violet-300 border-violet-500/20',
+    github: 'https://github.com/pratstick/multi-agent-doc-intelligence',
+    demo: null,
+    highlight: 'Multi-Agent',
+  },
+  {
+    id: 8,
+    title: 'GymClock',
+    description:
+      'Android workout timer and planner with custom interval timers, weekly scheduling, curated splits, and personal-record tracking. Built with Jetpack Compose, Room + Flow, Hilt DI, and optional Firebase cloud sync.',
+    icon: Dumbbell,
+    iconBg: 'bg-green-600/20',
+    iconColor: 'text-green-400',
+    tags: ['Kotlin', 'Jetpack Compose', 'Room', 'Hilt', 'MVVM', 'Firebase'],
+    tagColor: 'bg-green-500/10 text-green-300 border-green-500/20',
+    github: 'https://github.com/pratstick/GymClock',
+    demo: null,
+    highlight: 'Android',
+  },
+  {
+    id: 9,
+    title: 'Persona-Driven Doc Intelligence',
+    description:
+      'Adobe Hackathon solution using YOLOv11-based document layout analysis and Sentence Transformers to extract and rank sections most relevant to a given persona and job-to-be-done. Fully offline, containerised Docker deployment.',
+    icon: FileSearch,
+    iconBg: 'bg-rose-600/20',
+    iconColor: 'text-rose-400',
+    tags: ['Python', 'YOLOv11', 'Sentence Transformers', 'PyMuPDF', 'Docker'],
+    tagColor: 'bg-rose-500/10 text-rose-300 border-rose-500/20',
+    github: 'https://github.com/pratstick/persona-driven-doc-intel',
+    demo: null,
+    highlight: 'Hackathon',
+  },
+  {
+    id: 10,
+    title: 'Browser MCP Agent',
+    description:
+      'Enterprise web automation agent combining GPT-4.1 Mini with Anthropic\'s Model Context Protocol and Puppeteer. Accepts natural-language commands to navigate, interact with, and extract data from websites via a Streamlit UI.',
+    icon: Bot,
+    iconBg: 'bg-amber-600/20',
+    iconColor: 'text-amber-400',
+    tags: ['Python', 'MCP', 'GPT-4.1', 'Puppeteer', 'Streamlit', 'asyncio'],
+    tagColor: 'bg-amber-500/10 text-amber-300 border-amber-500/20',
+    github: 'https://github.com/pratstick/browser-mcp-agent',
+    demo: null,
+    highlight: 'Automation',
   },
 ]
 
