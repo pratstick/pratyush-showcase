@@ -57,7 +57,7 @@ export default function Hero() {
           </a>
           {/* TODO: Replace href="#" with your resume PDF path, e.g. "/resume.pdf" */}
           <a
-            href="https://drive.google.com/file/d/1T0EM5ru9YewWYaYakylpFoJb6EFJ__PM/view?usp=sharing"
+            href="https://drive.google.com/file/d/1nuMIw_3C0kvMvbPvzL7V4uflzcdIs75O/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto px-8 py-3.5 glass hover:bg-white/10 text-gray-200 font-medium rounded-xl transition-all duration-200 hover:-translate-y-0.5 flex items-center justify-center gap-2"
