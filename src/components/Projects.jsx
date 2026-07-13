@@ -1,25 +1,26 @@
-import { Github, ExternalLink, Cpu, Globe, Search, BarChart3, FileText, BookOpen, Network, Dumbbell, FileSearch, Bot } from 'lucide-react'
+import { useState } from 'react'
+import { Github, ExternalLink, Cpu, Globe, BarChart3, BookOpen, Network, FileSearch, Bot, Sparkles } from 'lucide-react'
 
-const projects = [
+const spotlightProjects = [
   {
     id: 1,
-    title: 'The Interview Alchemist',
+    title: 'Persona-Driven Semantic Search Engine',
     description:
-      'AI-powered technical interview prep platform. Create role-specific sessions, get Gemini-generated questions with answers, pin key concepts, and track your progress across sessions.',
-    icon: Cpu,
-    iconBg: 'bg-indigo-400/25',
-    iconColor: 'text-indigo-400',
-    tags: ['React', 'Node.js', 'MongoDB', 'Express', 'Gemini AI', 'Tailwind CSS'],
-    tagColor: 'bg-indigo-400/15 theme-text border-indigo-300/35',
-    github: 'https://github.com/pratstick/The-Interview-Alchemist',
+      'Adobe Hackathon-winning solution using YOLOv11 layout analysis and Sentence Transformers to rank document sections for a given persona and task. Designed for fully offline, containerised deployment.',
+    icon: FileSearch,
+    iconBg: 'bg-rose-400/25',
+    iconColor: 'text-rose-400',
+    tags: ['Python', 'YOLOv11', 'Sentence Transformers', 'PyMuPDF', 'Docker'],
+    tagColor: 'bg-rose-400/15 theme-text border-rose-300/35',
+    github: 'https://github.com/pratstick/persona-driven-doc-intel',
     demo: null,
-    highlight: 'AI-Powered',
+    highlight: 'Hackathon Winner',
   },
   {
     id: 2,
     title: 'ShareSphere',
     description:
-      'Community platform connecting neighbors for mutual support — from dog walking to grocery runs. Includes AI content moderation, neighborhood spaces, real-time updates, and user reputation.',
+      'Community platform connecting neighbors for mutual support with AI moderation, neighborhood spaces, real-time updates, and trust/reputation scoring.',
     icon: Globe,
     iconBg: 'bg-emerald-400/25',
     iconColor: 'text-emerald-400',
@@ -31,111 +32,72 @@ const projects = [
   },
   {
     id: 3,
-    title: 'Supply Chain Predictive Analytics',
+    title: 'The Interview Alchemist',
     description:
-      'Enterprise Databricks solution for supply chain optimization: demand forecasting with ML ensembles (XGBoost, Prophet, Random Forest), transportation linear programming, and intelligent stock allocation.',
-    icon: BarChart3,
-    iconBg: 'bg-cyan-400/25',
-    iconColor: 'text-cyan-400',
-    tags: ['Python', 'Databricks', 'XGBoost', 'Prophet', 'Spark', 'Streamlit'],
-    tagColor: 'bg-cyan-400/15 theme-text border-cyan-300/35',
-    github: 'https://github.com/pratstick/supply-chain-predictive-analytics',
+      'AI interview prep workspace with role-based practice sessions, Gemini-generated question/answer flows, concept pinning, and progress tracking.',
+    icon: Cpu,
+    iconBg: 'bg-indigo-400/25',
+    iconColor: 'text-indigo-400',
+    tags: ['React', 'Node.js', 'MongoDB', 'Express', 'Gemini AI', 'Tailwind CSS'],
+    tagColor: 'bg-indigo-400/15 theme-text border-indigo-300/35',
+    github: 'https://github.com/pratstick/The-Interview-Alchemist',
     demo: null,
-    highlight: 'ML / Data',
+    highlight: 'AI Product',
   },
+]
+
+const selectedProjects = [
   {
     id: 4,
-    title: 'Rabin-Karp XOR Filter Enhancement',
-    description:
-      'A performance-optimized implementation of the Rabin-Karp string-matching algorithm using XOR Filters. Reduces hash collisions and improves runtime efficiency compared to standard and Bloom filter variants.',
-    icon: Search,
-    iconBg: 'bg-purple-400/25',
-    iconColor: 'text-purple-400',
-    tags: ['Python', 'Algorithms', 'XOR Filter', 'Probabilistic DS', 'Optimization'],
-    tagColor: 'bg-purple-400/15 theme-text border-purple-300/35',
-    github: 'https://github.com/pratstick/rabin-karp-xor-filter-enhancement',
-    demo: null,
-    highlight: 'Algorithms',
-  },
-  {
-    id: 5,
-    title: 'AI Invoice Extractor',
-    description:
-      'Streamlit web app that extracts structured data from PDF and image invoices using Tesseract OCR and Google Gemini AI. Supports one-click export to CSV/JSON with robust error handling and a clean interactive interface.',
-    icon: FileText,
-    iconBg: 'bg-orange-400/25',
-    iconColor: 'text-orange-400',
-    tags: ['Python', 'Streamlit', 'Gemini AI', 'Tesseract OCR', 'Google AI'],
-    tagColor: 'bg-orange-400/15 theme-text border-orange-300/35',
-    github: 'https://github.com/pratstick/AI-Invoice-Extractor',
-    demo: null,
-    highlight: 'AI / OCR',
-  },
-  {
-    id: 6,
     title: 'PaperPulse',
     description:
-      'Full-stack AI research digest that ingests arXiv papers, generates LLM summaries with relevance scoring, and delivers a personalized daily feed. Powered by FastAPI, Next.js 16, and TanStack Query with pluggable OpenAI/Anthropic providers.',
+      'AI research digest that ingests arXiv papers, generates LLM summaries with relevance scoring, and serves a personalized feed.',
     icon: BookOpen,
     iconBg: 'bg-sky-400/25',
     iconColor: 'text-sky-400',
-    tags: ['FastAPI', 'Next.js', 'TypeScript', 'OpenAI', 'SQLAlchemy', 'Tailwind CSS'],
+    tags: ['FastAPI', 'Next.js', 'TypeScript', 'OpenAI', 'SQLAlchemy'],
     tagColor: 'bg-sky-400/15 theme-text border-sky-300/35',
     github: 'https://github.com/pratstick/PaperPulse',
     demo: null,
-    highlight: 'Full Stack',
+    highlight: 'Research AI',
   },
   {
-    id: 7,
+    id: 5,
+    title: 'Supply Chain Predictive Analytics',
+    description:
+      'Enterprise Databricks solution combining ML forecasting, transport optimization, and intelligent stock allocation.',
+    icon: BarChart3,
+    iconBg: 'bg-cyan-400/25',
+    iconColor: 'text-cyan-400',
+    tags: ['Python', 'Databricks', 'XGBoost', 'Prophet', 'Spark'],
+    tagColor: 'bg-cyan-400/15 theme-text border-cyan-300/35',
+    github: 'https://github.com/pratstick/supply-chain-predictive-analytics',
+    demo: null,
+    highlight: 'Enterprise ML',
+  },
+  {
+    id: 6,
     title: 'Multi-Agent Doc Intelligence',
     description:
-      'LangGraph-orchestrated multi-agent RAG pipeline for technical documentation Q&A. A router agent classifies queries as conceptual or implementation and dispatches to specialized agents backed by FAISS vector retrieval and Groq LLM inference.',
+      'LangGraph-based multi-agent RAG pipeline with routing, retrieval, and specialist agents for technical Q&A workflows.',
     icon: Network,
     iconBg: 'bg-violet-400/25',
     iconColor: 'text-violet-400',
-    tags: ['Python', 'LangGraph', 'FAISS', 'Groq', 'RAG', 'sentence-transformers'],
+    tags: ['Python', 'LangGraph', 'FAISS', 'Groq', 'RAG'],
     tagColor: 'bg-violet-400/15 theme-text border-violet-300/35',
     github: 'https://github.com/pratstick/multi-agent-doc-intelligence',
     demo: null,
     highlight: 'Multi-Agent',
   },
   {
-    id: 8,
-    title: 'GymClock',
-    description:
-      'Android workout timer and planner with custom interval timers, weekly scheduling, curated splits, and personal-record tracking. Built with Jetpack Compose, Room + Flow, Hilt DI, and optional Firebase cloud sync.',
-    icon: Dumbbell,
-    iconBg: 'bg-green-400/25',
-    iconColor: 'text-green-400',
-    tags: ['Kotlin', 'Jetpack Compose', 'Room', 'Hilt', 'MVVM', 'Firebase'],
-    tagColor: 'bg-green-400/15 theme-text border-green-300/35',
-    github: 'https://github.com/pratstick/GymClock',
-    demo: null,
-    highlight: 'Android',
-  },
-  {
-    id: 9,
-    title: 'Persona-Driven Doc Intelligence',
-    description:
-      'Adobe Hackathon solution using YOLOv11-based document layout analysis and Sentence Transformers to extract and rank sections most relevant to a given persona and job-to-be-done. Fully offline, containerised Docker deployment.',
-    icon: FileSearch,
-    iconBg: 'bg-rose-400/25',
-    iconColor: 'text-rose-400',
-    tags: ['Python', 'YOLOv11', 'Sentence Transformers', 'PyMuPDF', 'Docker'],
-    tagColor: 'bg-rose-400/15 theme-text border-rose-300/35',
-    github: 'https://github.com/pratstick/persona-driven-doc-intel',
-    demo: null,
-    highlight: 'Hackathon',
-  },
-  {
-    id: 10,
+    id: 7,
     title: 'Browser MCP Agent',
     description:
-      'Enterprise web automation agent combining GPT-4.1 Mini with Anthropic\'s Model Context Protocol and Puppeteer. Accepts natural-language commands to navigate, interact with, and extract data from websites via a Streamlit UI.',
+      'Natural-language web automation system powered by MCP and LLM orchestration for browser control and extraction workflows.',
     icon: Bot,
     iconBg: 'bg-amber-400/25',
     iconColor: 'text-amber-400',
-    tags: ['Python', 'MCP', 'GPT-4.1', 'Puppeteer', 'Streamlit', 'asyncio'],
+    tags: ['Python', 'MCP', 'GPT-4.1', 'Puppeteer', 'Streamlit'],
     tagColor: 'bg-amber-400/15 theme-text border-amber-300/35',
     github: 'https://github.com/pratstick/browser-mcp-agent',
     demo: null,
@@ -143,10 +105,14 @@ const projects = [
   },
 ]
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, featured = false }) {
   const Icon = project.icon
   return (
-    <article className="relative flex flex-col p-6 glass-strong rounded-2xl card-hover group overflow-hidden">
+    <article
+      className={`relative flex flex-col p-6 rounded-2xl card-hover group overflow-hidden ${
+        featured ? 'glass-strong' : 'glass'
+      }`}
+    >
       {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-500/50 via-purple-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
@@ -155,7 +121,7 @@ function ProjectCard({ project }) {
         <div className={`w-12 h-12 ${project.iconBg} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200`}>
           <Icon size={22} className={project.iconColor} />
         </div>
-        <span className="px-2.5 py-1 text-xs font-mono font-semibold glass rounded-full theme-text">
+        <span className={`px-2.5 py-1 text-xs font-mono font-semibold rounded-full theme-text ${featured ? 'glass' : 'glass-strong'}`}>
           {project.highlight}
         </span>
       </div>
@@ -208,6 +174,8 @@ function ProjectCard({ project }) {
 }
 
 export default function Projects() {
+  const [showSelected, setShowSelected] = useState(false)
+
   return (
     <section id="projects" className="section-padding">
       <div className="max-w-6xl mx-auto section-shell">
@@ -222,7 +190,7 @@ export default function Projects() {
               Featured Projects
             </h2>
             <p className="theme-muted max-w-lg">
-              A selection of projects ranging from AI-powered web apps to research publications and enterprise data pipelines.
+              A curated, resume-focused set of projects with strongest product, AI, and engineering impact.
             </p>
           </div>
           <a
@@ -236,10 +204,34 @@ export default function Projects() {
           </a>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+        <div className="glass rounded-2xl px-4 py-3 border border-indigo-300/25 mb-8 inline-flex items-center gap-2">
+          <Sparkles size={15} className="text-indigo-300" />
+          <p className="text-sm theme-secondary">
+            Front section shows only the most notable work to keep the portfolio clean and recruiter-friendly.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-3 gap-6">
+          {spotlightProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} featured />
           ))}
+        </div>
+
+        <div className="mt-10 flex flex-col items-center gap-4">
+          <button
+            type="button"
+            onClick={() => setShowSelected((currentValue) => !currentValue)}
+            className="px-5 py-2.5 glass hover-glass theme-text text-sm rounded-lg transition-colors font-medium"
+          >
+            {showSelected ? 'Hide Additional Selected Work' : 'View Additional Selected Work'}
+          </button>
+          {showSelected && (
+            <div className="grid md:grid-cols-2 gap-6 w-full">
+              {selectedProjects.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>
