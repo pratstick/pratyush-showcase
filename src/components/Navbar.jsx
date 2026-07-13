@@ -41,7 +41,7 @@ export default function Navbar({ theme, onToggleTheme }) {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="theme-muted hover:text-white transition-colors text-sm font-medium tracking-wide"
+                className="theme-muted hover-theme-text transition-colors text-sm font-medium tracking-wide"
               >
                 {link.label}
               </a>
@@ -51,7 +51,7 @@ export default function Navbar({ theme, onToggleTheme }) {
             <button
               type="button"
               onClick={onToggleTheme}
-              className="p-2 glass rounded-lg text-indigo-300 hover:text-white hover:bg-white/20 transition-colors"
+              className="p-2 glass rounded-lg text-indigo-400 hover-theme-text hover-glass transition-colors"
               aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
             >
               {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
@@ -60,7 +60,7 @@ export default function Navbar({ theme, onToggleTheme }) {
           <li>
             <a
               href="#contact"
-              className="px-4 py-2 glass text-white text-sm font-medium rounded-lg transition-colors hover:bg-white/20"
+              className="px-4 py-2 glass theme-text text-sm font-medium rounded-lg transition-colors hover-glass"
             >
               Hire Me
             </a>
@@ -70,7 +70,7 @@ export default function Navbar({ theme, onToggleTheme }) {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden theme-muted hover:text-white transition-colors"
+          className="md:hidden theme-muted hover-theme-text transition-colors"
           aria-label="Toggle menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -86,7 +86,7 @@ export default function Navbar({ theme, onToggleTheme }) {
                 <a
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="theme-secondary hover:text-white transition-colors text-sm font-medium block py-1"
+                  className="theme-secondary hover-theme-text transition-colors text-sm font-medium block py-1"
                 >
                   {link.label}
                 </a>
@@ -96,7 +96,7 @@ export default function Navbar({ theme, onToggleTheme }) {
               <button
                 type="button"
                 onClick={onToggleTheme}
-                className="inline-flex items-center gap-2 px-4 py-2 glass theme-text text-sm font-medium rounded-lg transition-colors hover:bg-white/20"
+                className="inline-flex items-center gap-2 px-4 py-2 glass theme-text text-sm font-medium rounded-lg transition-colors hover-glass"
                 aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
               >
                 {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
@@ -107,7 +107,7 @@ export default function Navbar({ theme, onToggleTheme }) {
               <a
                 href="#contact"
                 onClick={() => setIsOpen(false)}
-                className="inline-block px-4 py-2 glass text-white text-sm font-medium rounded-lg transition-colors hover:bg-white/20"
+                className="inline-block px-4 py-2 glass theme-text text-sm font-medium rounded-lg transition-colors hover-glass"
               >
                 Hire Me
               </a>

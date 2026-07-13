@@ -73,9 +73,9 @@ export default function Contact() {
                   href="https://github.com/pratstick"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 theme-muted hover:text-white transition-colors group"
+                  className="flex items-center gap-3 theme-muted hover-theme-text transition-colors group"
                 >
-                  <span className="w-10 h-10 glass rounded-xl flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                  <span className="w-10 h-10 glass rounded-xl flex items-center justify-center group-hover:bg-[var(--glass-hover-bg)] transition-colors">
                     <Github size={18} />
                   </span>
                   <div>
@@ -87,9 +87,9 @@ export default function Contact() {
                   href="https://linkedin.com/in/pratyush-k-/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 theme-muted hover:text-white transition-colors group"
+                  className="flex items-center gap-3 theme-muted hover-theme-text transition-colors group"
                 >
-                  <span className="w-10 h-10 glass rounded-xl flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                  <span className="w-10 h-10 glass rounded-xl flex items-center justify-center group-hover:bg-[var(--glass-hover-bg)] transition-colors">
                     <Linkedin size={18} />
                   </span>
                   <div>
@@ -99,9 +99,9 @@ export default function Contact() {
                 </a>
                 <a
                   href="mailto:pratyushk2005@gmail.com"
-                  className="flex items-center gap-3 theme-muted hover:text-white transition-colors group"
+                  className="flex items-center gap-3 theme-muted hover-theme-text transition-colors group"
                 >
-                  <span className="w-10 h-10 glass rounded-xl flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                  <span className="w-10 h-10 glass rounded-xl flex items-center justify-center group-hover:bg-[var(--glass-hover-bg)] transition-colors">
                     <Mail size={18} />
                   </span>
                   <div>
@@ -111,9 +111,9 @@ export default function Contact() {
                 </a>
                 <a
                   href="tel:+919022904732"
-                  className="flex items-center gap-3 theme-muted hover:text-white transition-colors group"
+                  className="flex items-center gap-3 theme-muted hover-theme-text transition-colors group"
                 >
-                  <span className="w-10 h-10 glass rounded-xl flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                  <span className="w-10 h-10 glass rounded-xl flex items-center justify-center group-hover:bg-[var(--glass-hover-bg)] transition-colors">
                     <Phone size={18} />
                   </span>
                   <div>
@@ -177,7 +177,7 @@ export default function Contact() {
             <button
               type="submit"
               disabled={status === 'sending'}
-              className="w-full flex items-center justify-center gap-2 px-6 py-3.5 glass-strong hover:bg-white/25 disabled:opacity-60 disabled:cursor-not-allowed theme-text font-medium rounded-xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+              className="w-full flex items-center justify-center gap-2 px-6 py-3.5 glass-strong hover-glass disabled:opacity-60 disabled:cursor-not-allowed theme-text font-medium rounded-xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
             >
               {status === 'sending' ? (
                 <span>Sending…</span>
