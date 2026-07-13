@@ -14,7 +14,7 @@ export default function Footer() {
           href="https://github.com/pratstick"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 theme-muted hover:text-white transition-colors text-sm"
+          className="flex items-center gap-2 theme-muted hover-theme-text transition-colors text-sm"
         >
           <Github size={14} />
           <span>pratstick</span>

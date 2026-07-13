@@ -36,7 +36,7 @@ export default function About() {
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left - Text */}
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold theme-text mb-6">
               Building things that{' '}
               <span className="text-gradient">matter</span>
             </h2>
@@ -58,7 +58,7 @@ export default function About() {
               {['Open to Opportunities', 'Product-Focused', 'Impact-Driven'].map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1.5 text-xs font-mono text-indigo-200 glass rounded-full"
+                  className="px-3 py-1.5 text-xs font-mono theme-text glass rounded-full"
                 >
                   {tag}
                 </span>
@@ -76,7 +76,7 @@ export default function About() {
                 className="p-5 glass-strong rounded-xl card-hover group"
               >
                 <div className="w-10 h-10 bg-indigo-500/25 rounded-lg flex items-center justify-center mb-3 group-hover:bg-indigo-500/35 transition-colors">
-                  <CardIcon size={20} className="text-indigo-200" />
+                  <CardIcon size={20} className="text-indigo-400" />
                 </div>
                 <h3 className="theme-text font-semibold text-sm mb-1.5">{title}</h3>
                 <p className="theme-muted text-xs leading-relaxed">{desc}</p>

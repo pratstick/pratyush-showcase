@@ -32,21 +32,21 @@ const skillCategories = [
 ]
 
 const colorMap = {
-  indigo: 'bg-indigo-400/15 text-indigo-100 border-indigo-200/35',
-  purple: 'bg-purple-400/15 text-purple-100 border-purple-200/35',
-  cyan: 'bg-cyan-400/15 text-cyan-100 border-cyan-200/35',
-  emerald: 'bg-emerald-400/15 text-emerald-100 border-emerald-200/35',
-  orange: 'bg-orange-400/15 text-orange-100 border-orange-200/35',
-  pink: 'bg-pink-400/15 text-pink-100 border-pink-200/35',
+  indigo: 'bg-indigo-400/15 theme-text border-indigo-300/35',
+  purple: 'bg-purple-400/15 theme-text border-purple-300/35',
+  cyan: 'bg-cyan-400/15 theme-text border-cyan-300/35',
+  emerald: 'bg-emerald-400/15 theme-text border-emerald-300/35',
+  orange: 'bg-orange-400/15 theme-text border-orange-300/35',
+  pink: 'bg-pink-400/15 theme-text border-pink-300/35',
 }
 
 const headerColorMap = {
-  indigo: 'text-indigo-200',
-  purple: 'text-purple-200',
-  cyan: 'text-cyan-200',
-  emerald: 'text-emerald-200',
-  orange: 'text-orange-200',
-  pink: 'text-pink-200',
+  indigo: 'text-indigo-400',
+  purple: 'text-purple-400',
+  cyan: 'text-cyan-400',
+  emerald: 'text-emerald-400',
+  orange: 'text-orange-400',
+  pink: 'text-pink-400',
 }
 
 export default function Skills() {
