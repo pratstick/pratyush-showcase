@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Menu, X, Code2 } from 'lucide-react'
+import { Menu, X, Code2, Sun, Moon } from 'lucide-react'
 
 const navLinks = [
   { href: '#about', label: 'About' },
@@ -8,7 +8,7 @@ const navLinks = [
   { href: '#contact', label: 'Contact' },
 ]
 
-export default function Navbar() {
+export default function Navbar({ theme, onToggleTheme }) {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -22,7 +22,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#0a0a0f]/95 backdrop-blur-md border-b border-white/5 shadow-lg shadow-black/20'
+          ? 'glass-strong border-b border-white/20 shadow-xl shadow-black/25'
           : 'bg-transparent'
       }`}
     >
@@ -41,16 +41,26 @@ export default function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-gray-400 hover:text-white transition-colors text-sm font-medium tracking-wide"
+                className="theme-muted hover:text-white transition-colors text-sm font-medium tracking-wide"
               >
                 {link.label}
               </a>
             </li>
           ))}
           <li>
+            <button
+              type="button"
+              onClick={onToggleTheme}
+              className="p-2 glass rounded-lg text-indigo-300 hover:text-white hover:bg-white/20 transition-colors"
+              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            >
+              {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+            </button>
+          </li>
+          <li>
             <a
               href="#contact"
-              className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium rounded-lg transition-colors"
+              className="px-4 py-2 glass text-white text-sm font-medium rounded-lg transition-colors hover:bg-white/20"
             >
               Hire Me
             </a>
@@ -60,7 +70,7 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-gray-400 hover:text-white transition-colors"
+          className="md:hidden theme-muted hover:text-white transition-colors"
           aria-label="Toggle menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -69,24 +79,35 @@ export default function Navbar() {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <div className="md:hidden bg-[#12121a] border-t border-white/5">
+        <div className="md:hidden glass-strong border-t border-white/20">
           <ul className="px-6 py-4 flex flex-col gap-4">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-gray-300 hover:text-white transition-colors text-sm font-medium block py-1"
+                  className="theme-secondary hover:text-white transition-colors text-sm font-medium block py-1"
                 >
                   {link.label}
                 </a>
               </li>
             ))}
             <li>
+              <button
+                type="button"
+                onClick={onToggleTheme}
+                className="inline-flex items-center gap-2 px-4 py-2 glass theme-text text-sm font-medium rounded-lg transition-colors hover:bg-white/20"
+                aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+              >
+                {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+                {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+              </button>
+            </li>
+            <li>
               <a
                 href="#contact"
                 onClick={() => setIsOpen(false)}
-                className="inline-block px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium rounded-lg transition-colors"
+                className="inline-block px-4 py-2 glass text-white text-sm font-medium rounded-lg transition-colors hover:bg-white/20"
               >
                 Hire Me
               </a>

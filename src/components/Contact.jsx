@@ -49,16 +49,16 @@ export default function Contact() {
 
   return (
     <section id="contact" className="section-padding">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-5xl mx-auto section-shell">
         <div className="flex items-center gap-3 mb-4">
           <span className="text-indigo-400 font-mono text-sm">04.</span>
-          <span className="text-gray-500 font-mono text-sm uppercase tracking-widest">Contact</span>
+          <span className="theme-subtle font-mono text-sm uppercase tracking-widest">Contact</span>
         </div>
 
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold theme-text mb-4">
           Get In Touch
         </h2>
-        <p className="text-gray-400 mb-12 max-w-xl">
+        <p className="theme-muted mb-12 max-w-xl">
           I&apos;m currently open to new opportunities. Whether you have a project in mind, a role to
           discuss, or just want to say hi — my inbox is always open.
         </p>
@@ -67,58 +67,58 @@ export default function Contact() {
           {/* Left — Info */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-white font-semibold mb-4">Let&apos;s connect</h3>
+              <h3 className="theme-text font-semibold mb-4">Let&apos;s connect</h3>
               <div className="space-y-4">
                 <a
                   href="https://github.com/pratstick"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group"
+                  className="flex items-center gap-3 theme-muted hover:text-white transition-colors group"
                 >
-                  <span className="w-10 h-10 glass rounded-xl flex items-center justify-center group-hover:bg-white/10 transition-colors">
+                  <span className="w-10 h-10 glass rounded-xl flex items-center justify-center group-hover:bg-white/20 transition-colors">
                     <Github size={18} />
                   </span>
                   <div>
-                    <p className="text-xs text-gray-500 font-mono">GitHub</p>
-                    <p className="text-sm font-medium">github.com/pratstick</p>
+                    <p className="text-xs theme-subtle font-mono">GitHub</p>
+                    <p className="text-sm font-medium theme-secondary">github.com/pratstick</p>
                   </div>
                 </a>
                 <a
                   href="https://linkedin.com/in/pratyush-k-/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group"
+                  className="flex items-center gap-3 theme-muted hover:text-white transition-colors group"
                 >
-                  <span className="w-10 h-10 glass rounded-xl flex items-center justify-center group-hover:bg-white/10 transition-colors">
+                  <span className="w-10 h-10 glass rounded-xl flex items-center justify-center group-hover:bg-white/20 transition-colors">
                     <Linkedin size={18} />
                   </span>
                   <div>
-                    <p className="text-xs text-gray-500 font-mono">LinkedIn</p>
-                    <p className="text-sm font-medium">linkedin.com/in/pratyush-k-/</p>
+                    <p className="text-xs theme-subtle font-mono">LinkedIn</p>
+                    <p className="text-sm font-medium theme-secondary">linkedin.com/in/pratyush-k-/</p>
                   </div>
                 </a>
                 <a
                   href="mailto:pratyushk2005@gmail.com"
-                  className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group"
+                  className="flex items-center gap-3 theme-muted hover:text-white transition-colors group"
                 >
-                  <span className="w-10 h-10 glass rounded-xl flex items-center justify-center group-hover:bg-white/10 transition-colors">
+                  <span className="w-10 h-10 glass rounded-xl flex items-center justify-center group-hover:bg-white/20 transition-colors">
                     <Mail size={18} />
                   </span>
                   <div>
-                    <p className="text-xs text-gray-500 font-mono">Email</p>
-                    <p className="text-sm font-medium">pratyushk2005@gmail.com</p>
+                    <p className="text-xs theme-subtle font-mono">Email</p>
+                    <p className="text-sm font-medium theme-secondary">pratyushk2005@gmail.com</p>
                   </div>
                 </a>
                 <a
                   href="tel:+919022904732"
-                  className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group"
+                  className="flex items-center gap-3 theme-muted hover:text-white transition-colors group"
                 >
-                  <span className="w-10 h-10 glass rounded-xl flex items-center justify-center group-hover:bg-white/10 transition-colors">
+                  <span className="w-10 h-10 glass rounded-xl flex items-center justify-center group-hover:bg-white/20 transition-colors">
                     <Phone size={18} />
                   </span>
                   <div>
-                    <p className="text-xs text-gray-500 font-mono">Phone</p>
-                    <p className="text-sm font-medium">+91 9022904732</p>
+                    <p className="text-xs theme-subtle font-mono">Phone</p>
+                    <p className="text-sm font-medium theme-secondary">+91 9022904732</p>
                   </div>
                 </a>
               </div>
@@ -129,7 +129,7 @@ export default function Contact() {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="name" className="block text-xs font-mono text-gray-400 mb-2">
+                <label htmlFor="name" className="block text-xs font-mono theme-muted mb-2">
                   Name
                 </label>
                 <input
@@ -140,11 +140,11 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Your name"
-                  className="w-full px-4 py-3 glass rounded-xl text-sm text-white placeholder-gray-600 focus:outline-none focus:ring-1 focus:ring-indigo-500 transition-all"
+                  className="w-full px-4 py-3 glass rounded-xl text-sm theme-text placeholder:text-slate-500/70 focus:outline-none focus:ring-1 focus:ring-indigo-400 transition-all"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-xs font-mono text-gray-400 mb-2">
+                <label htmlFor="email" className="block text-xs font-mono theme-muted mb-2">
                   Email
                 </label>
                 <input
@@ -155,12 +155,12 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="you@example.com"
-                  className="w-full px-4 py-3 glass rounded-xl text-sm text-white placeholder-gray-600 focus:outline-none focus:ring-1 focus:ring-indigo-500 transition-all"
+                  className="w-full px-4 py-3 glass rounded-xl text-sm theme-text placeholder:text-slate-500/70 focus:outline-none focus:ring-1 focus:ring-indigo-400 transition-all"
                 />
               </div>
             </div>
             <div>
-              <label htmlFor="message" className="block text-xs font-mono text-gray-400 mb-2">
+              <label htmlFor="message" className="block text-xs font-mono theme-muted mb-2">
                 Message
               </label>
               <textarea
@@ -171,13 +171,13 @@ export default function Contact() {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Tell me about your project or opportunity..."
-                className="w-full px-4 py-3 glass rounded-xl text-sm text-white placeholder-gray-600 focus:outline-none focus:ring-1 focus:ring-indigo-500 transition-all resize-none"
+                className="w-full px-4 py-3 glass rounded-xl text-sm theme-text placeholder:text-slate-500/70 focus:outline-none focus:ring-1 focus:ring-indigo-400 transition-all resize-none"
               />
             </div>
             <button
               type="submit"
               disabled={status === 'sending'}
-              className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-indigo-600 hover:bg-indigo-500 disabled:opacity-60 disabled:cursor-not-allowed text-white font-medium rounded-xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/25"
+              className="w-full flex items-center justify-center gap-2 px-6 py-3.5 glass-strong hover:bg-white/25 disabled:opacity-60 disabled:cursor-not-allowed theme-text font-medium rounded-xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
             >
               {status === 'sending' ? (
                 <span>Sending…</span>

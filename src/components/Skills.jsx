@@ -32,42 +32,42 @@ const skillCategories = [
 ]
 
 const colorMap = {
-  indigo: 'bg-indigo-500/10 text-indigo-300 border-indigo-500/20',
-  purple: 'bg-purple-500/10 text-purple-300 border-purple-500/20',
-  cyan: 'bg-cyan-500/10 text-cyan-300 border-cyan-500/20',
-  emerald: 'bg-emerald-500/10 text-emerald-300 border-emerald-500/20',
-  orange: 'bg-orange-500/10 text-orange-300 border-orange-500/20',
-  pink: 'bg-pink-500/10 text-pink-300 border-pink-500/20',
+  indigo: 'bg-indigo-400/15 text-indigo-100 border-indigo-200/35',
+  purple: 'bg-purple-400/15 text-purple-100 border-purple-200/35',
+  cyan: 'bg-cyan-400/15 text-cyan-100 border-cyan-200/35',
+  emerald: 'bg-emerald-400/15 text-emerald-100 border-emerald-200/35',
+  orange: 'bg-orange-400/15 text-orange-100 border-orange-200/35',
+  pink: 'bg-pink-400/15 text-pink-100 border-pink-200/35',
 }
 
 const headerColorMap = {
-  indigo: 'text-indigo-400',
-  purple: 'text-purple-400',
-  cyan: 'text-cyan-400',
-  emerald: 'text-emerald-400',
-  orange: 'text-orange-400',
-  pink: 'text-pink-400',
+  indigo: 'text-indigo-200',
+  purple: 'text-purple-200',
+  cyan: 'text-cyan-200',
+  emerald: 'text-emerald-200',
+  orange: 'text-orange-200',
+  pink: 'text-pink-200',
 }
 
 export default function Skills() {
   return (
     <section id="skills" className="section-padding">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-5xl mx-auto section-shell">
         <div className="flex items-center gap-3 mb-4">
           <span className="text-indigo-400 font-mono text-sm">02.</span>
-          <span className="text-gray-500 font-mono text-sm uppercase tracking-widest">Tech Stack</span>
+          <span className="theme-subtle font-mono text-sm uppercase tracking-widest">Tech Stack</span>
         </div>
 
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold theme-text mb-4">
           Tools &amp; Technologies
         </h2>
-        <p className="text-gray-400 mb-12 max-w-xl">
+        <p className="theme-muted mb-12 max-w-xl">
           Technologies I&apos;ve worked with across web development, AI integration, and data engineering.
         </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map(({ category, color, skills }) => (
-            <div key={category} className="p-6 glass rounded-xl card-hover">
+            <div key={category} className="p-6 glass-strong rounded-xl card-hover">
               <h3 className={`font-mono font-semibold text-sm mb-4 ${headerColorMap[color]}`}>
                 {category}
               </h3>
