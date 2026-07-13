@@ -7,10 +7,10 @@ const projects = [
     description:
       'AI-powered technical interview prep platform. Create role-specific sessions, get Gemini-generated questions with answers, pin key concepts, and track your progress across sessions.',
     icon: Cpu,
-    iconBg: 'bg-indigo-600/20',
-    iconColor: 'text-indigo-400',
+    iconBg: 'bg-indigo-400/25',
+    iconColor: 'text-indigo-100',
     tags: ['React', 'Node.js', 'MongoDB', 'Express', 'Gemini AI', 'Tailwind CSS'],
-    tagColor: 'bg-indigo-500/10 text-indigo-300 border-indigo-500/20',
+    tagColor: 'bg-indigo-400/15 text-indigo-100 border-indigo-200/35',
     github: 'https://github.com/pratstick/The-Interview-Alchemist',
     demo: null,
     highlight: 'AI-Powered',
@@ -21,10 +21,10 @@ const projects = [
     description:
       'Community platform connecting neighbors for mutual support — from dog walking to grocery runs. Includes AI content moderation, neighborhood spaces, real-time updates, and user reputation.',
     icon: Globe,
-    iconBg: 'bg-emerald-600/20',
-    iconColor: 'text-emerald-400',
+    iconBg: 'bg-emerald-400/25',
+    iconColor: 'text-emerald-100',
     tags: ['Next.js 15', 'TypeScript', 'Sanity CMS', 'Clerk', 'OpenAI', 'Tailwind CSS'],
-    tagColor: 'bg-emerald-500/10 text-emerald-300 border-emerald-500/20',
+    tagColor: 'bg-emerald-400/15 text-emerald-100 border-emerald-200/35',
     github: 'https://github.com/pratstick/ShareSphere',
     demo: null,
     highlight: 'Full Stack',
@@ -35,10 +35,10 @@ const projects = [
     description:
       'Enterprise Databricks solution for supply chain optimization: demand forecasting with ML ensembles (XGBoost, Prophet, Random Forest), transportation linear programming, and intelligent stock allocation.',
     icon: BarChart3,
-    iconBg: 'bg-cyan-600/20',
-    iconColor: 'text-cyan-400',
+    iconBg: 'bg-cyan-400/25',
+    iconColor: 'text-cyan-100',
     tags: ['Python', 'Databricks', 'XGBoost', 'Prophet', 'Spark', 'Streamlit'],
-    tagColor: 'bg-cyan-500/10 text-cyan-300 border-cyan-500/20',
+    tagColor: 'bg-cyan-400/15 text-cyan-100 border-cyan-200/35',
     github: 'https://github.com/pratstick/supply-chain-predictive-analytics',
     demo: null,
     highlight: 'ML / Data',
@@ -49,10 +49,10 @@ const projects = [
     description:
       'A performance-optimized implementation of the Rabin-Karp string-matching algorithm using XOR Filters. Reduces hash collisions and improves runtime efficiency compared to standard and Bloom filter variants.',
     icon: Search,
-    iconBg: 'bg-purple-600/20',
-    iconColor: 'text-purple-400',
+    iconBg: 'bg-purple-400/25',
+    iconColor: 'text-purple-100',
     tags: ['Python', 'Algorithms', 'XOR Filter', 'Probabilistic DS', 'Optimization'],
-    tagColor: 'bg-purple-500/10 text-purple-300 border-purple-500/20',
+    tagColor: 'bg-purple-400/15 text-purple-100 border-purple-200/35',
     github: 'https://github.com/pratstick/rabin-karp-xor-filter-enhancement',
     demo: null,
     highlight: 'Algorithms',
@@ -63,10 +63,10 @@ const projects = [
     description:
       'Streamlit web app that extracts structured data from PDF and image invoices using Tesseract OCR and Google Gemini AI. Supports one-click export to CSV/JSON with robust error handling and a clean interactive interface.',
     icon: FileText,
-    iconBg: 'bg-orange-600/20',
-    iconColor: 'text-orange-400',
+    iconBg: 'bg-orange-400/25',
+    iconColor: 'text-orange-100',
     tags: ['Python', 'Streamlit', 'Gemini AI', 'Tesseract OCR', 'Google AI'],
-    tagColor: 'bg-orange-500/10 text-orange-300 border-orange-500/20',
+    tagColor: 'bg-orange-400/15 text-orange-100 border-orange-200/35',
     github: 'https://github.com/pratstick/AI-Invoice-Extractor',
     demo: null,
     highlight: 'AI / OCR',
@@ -77,10 +77,10 @@ const projects = [
     description:
       'Full-stack AI research digest that ingests arXiv papers, generates LLM summaries with relevance scoring, and delivers a personalized daily feed. Powered by FastAPI, Next.js 16, and TanStack Query with pluggable OpenAI/Anthropic providers.',
     icon: BookOpen,
-    iconBg: 'bg-sky-600/20',
-    iconColor: 'text-sky-400',
+    iconBg: 'bg-sky-400/25',
+    iconColor: 'text-sky-100',
     tags: ['FastAPI', 'Next.js', 'TypeScript', 'OpenAI', 'SQLAlchemy', 'Tailwind CSS'],
-    tagColor: 'bg-sky-500/10 text-sky-300 border-sky-500/20',
+    tagColor: 'bg-sky-400/15 text-sky-100 border-sky-200/35',
     github: 'https://github.com/pratstick/PaperPulse',
     demo: null,
     highlight: 'Full Stack',
@@ -91,10 +91,10 @@ const projects = [
     description:
       'LangGraph-orchestrated multi-agent RAG pipeline for technical documentation Q&A. A router agent classifies queries as conceptual or implementation and dispatches to specialized agents backed by FAISS vector retrieval and Groq LLM inference.',
     icon: Network,
-    iconBg: 'bg-violet-600/20',
-    iconColor: 'text-violet-400',
+    iconBg: 'bg-violet-400/25',
+    iconColor: 'text-violet-100',
     tags: ['Python', 'LangGraph', 'FAISS', 'Groq', 'RAG', 'sentence-transformers'],
-    tagColor: 'bg-violet-500/10 text-violet-300 border-violet-500/20',
+    tagColor: 'bg-violet-400/15 text-violet-100 border-violet-200/35',
     github: 'https://github.com/pratstick/multi-agent-doc-intelligence',
     demo: null,
     highlight: 'Multi-Agent',
@@ -105,10 +105,10 @@ const projects = [
     description:
       'Android workout timer and planner with custom interval timers, weekly scheduling, curated splits, and personal-record tracking. Built with Jetpack Compose, Room + Flow, Hilt DI, and optional Firebase cloud sync.',
     icon: Dumbbell,
-    iconBg: 'bg-green-600/20',
-    iconColor: 'text-green-400',
+    iconBg: 'bg-green-400/25',
+    iconColor: 'text-green-100',
     tags: ['Kotlin', 'Jetpack Compose', 'Room', 'Hilt', 'MVVM', 'Firebase'],
-    tagColor: 'bg-green-500/10 text-green-300 border-green-500/20',
+    tagColor: 'bg-green-400/15 text-green-100 border-green-200/35',
     github: 'https://github.com/pratstick/GymClock',
     demo: null,
     highlight: 'Android',
@@ -119,10 +119,10 @@ const projects = [
     description:
       'Adobe Hackathon solution using YOLOv11-based document layout analysis and Sentence Transformers to extract and rank sections most relevant to a given persona and job-to-be-done. Fully offline, containerised Docker deployment.',
     icon: FileSearch,
-    iconBg: 'bg-rose-600/20',
-    iconColor: 'text-rose-400',
+    iconBg: 'bg-rose-400/25',
+    iconColor: 'text-rose-100',
     tags: ['Python', 'YOLOv11', 'Sentence Transformers', 'PyMuPDF', 'Docker'],
-    tagColor: 'bg-rose-500/10 text-rose-300 border-rose-500/20',
+    tagColor: 'bg-rose-400/15 text-rose-100 border-rose-200/35',
     github: 'https://github.com/pratstick/persona-driven-doc-intel',
     demo: null,
     highlight: 'Hackathon',
@@ -133,10 +133,10 @@ const projects = [
     description:
       'Enterprise web automation agent combining GPT-4.1 Mini with Anthropic\'s Model Context Protocol and Puppeteer. Accepts natural-language commands to navigate, interact with, and extract data from websites via a Streamlit UI.',
     icon: Bot,
-    iconBg: 'bg-amber-600/20',
-    iconColor: 'text-amber-400',
+    iconBg: 'bg-amber-400/25',
+    iconColor: 'text-amber-100',
     tags: ['Python', 'MCP', 'GPT-4.1', 'Puppeteer', 'Streamlit', 'asyncio'],
-    tagColor: 'bg-amber-500/10 text-amber-300 border-amber-500/20',
+    tagColor: 'bg-amber-400/15 text-amber-100 border-amber-200/35',
     github: 'https://github.com/pratstick/browser-mcp-agent',
     demo: null,
     highlight: 'Automation',
@@ -146,7 +146,7 @@ const projects = [
 function ProjectCard({ project }) {
   const Icon = project.icon
   return (
-    <article className="relative flex flex-col p-6 glass rounded-2xl card-hover group overflow-hidden">
+    <article className="relative flex flex-col p-6 glass-strong rounded-2xl card-hover group overflow-hidden">
       {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-500/50 via-purple-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
@@ -155,16 +155,16 @@ function ProjectCard({ project }) {
         <div className={`w-12 h-12 ${project.iconBg} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200`}>
           <Icon size={22} className={project.iconColor} />
         </div>
-        <span className="px-2.5 py-1 text-xs font-mono font-semibold glass rounded-full text-gray-300">
+        <span className="px-2.5 py-1 text-xs font-mono font-semibold glass rounded-full theme-text">
           {project.highlight}
         </span>
       </div>
 
       {/* Content */}
-      <h3 className="text-lg font-bold text-white mb-3 group-hover:text-indigo-300 transition-colors">
+      <h3 className="text-lg font-bold theme-text mb-3 group-hover:text-indigo-200 transition-colors">
         {project.title}
       </h3>
-      <p className="text-gray-400 text-sm leading-relaxed flex-1 mb-5">{project.description}</p>
+      <p className="theme-muted text-sm leading-relaxed flex-1 mb-5">{project.description}</p>
 
       {/* Tags */}
       <div className="flex flex-wrap gap-1.5 mb-5">
@@ -184,7 +184,7 @@ function ProjectCard({ project }) {
           href={project.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-white transition-colors font-medium"
+          className="flex items-center gap-1.5 text-xs theme-muted hover:text-white transition-colors font-medium"
           aria-label={`View ${project.title} on GitHub`}
         >
           <Github size={14} />
@@ -195,7 +195,7 @@ function ProjectCard({ project }) {
             href={project.demo}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-indigo-300 transition-colors font-medium"
+            className="flex items-center gap-1.5 text-xs theme-muted hover:text-indigo-200 transition-colors font-medium"
             aria-label={`View ${project.title} live demo`}
           >
             <ExternalLink size={14} />
@@ -209,19 +209,19 @@ function ProjectCard({ project }) {
 
 export default function Projects() {
   return (
-    <section id="projects" className="section-padding bg-[#0d0d14]">
-      <div className="max-w-6xl mx-auto">
+    <section id="projects" className="section-padding">
+      <div className="max-w-6xl mx-auto section-shell">
         <div className="flex items-center gap-3 mb-4">
           <span className="text-indigo-400 font-mono text-sm">03.</span>
-          <span className="text-gray-500 font-mono text-sm uppercase tracking-widest">Work</span>
+          <span className="theme-subtle font-mono text-sm uppercase tracking-widest">Work</span>
         </div>
 
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+            <h2 className="text-3xl md:text-4xl font-bold theme-text mb-3">
               Featured Projects
             </h2>
-            <p className="text-gray-400 max-w-lg">
+            <p className="theme-muted max-w-lg">
               A selection of projects ranging from AI-powered web apps to research publications and enterprise data pipelines.
             </p>
           </div>
@@ -229,7 +229,7 @@ export default function Projects() {
             href="https://github.com/pratstick"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-shrink-0 flex items-center gap-2 text-sm text-indigo-400 hover:text-indigo-300 transition-colors font-medium"
+            className="flex-shrink-0 flex items-center gap-2 text-sm text-indigo-200 hover:text-white transition-colors font-medium"
           >
             <Github size={16} />
             All repos →

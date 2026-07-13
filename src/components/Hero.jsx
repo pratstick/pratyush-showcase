@@ -9,8 +9,8 @@ export default function Hero() {
       {/* Background gradient effects */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[640px] h-[640px] bg-cyan-400/15 rounded-full blur-3xl" />
       </div>
 
       {/* Grid pattern */}
@@ -25,7 +25,7 @@ export default function Hero() {
 
       <div className="max-w-4xl mx-auto px-6 text-center">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-indigo-300 mb-8 animate-fade-in">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-strong text-sm text-indigo-200 mb-8 animate-fade-in">
           <Sparkles size={14} />
           <span>Available for full-time roles &amp; freelance</span>
         </div>
@@ -37,12 +37,12 @@ export default function Hero() {
         </h1>
 
         {/* Title */}
-        <p className="text-xl md:text-2xl text-gray-300 font-light mb-6 animate-slide-up">
+        <p className="text-xl md:text-2xl theme-secondary font-light mb-6 animate-slide-up">
           Full Stack Developer &amp; AI Engineer
         </p>
 
         {/* Description */}
-        <p className="max-w-2xl mx-auto text-gray-400 text-lg leading-relaxed mb-10 animate-fade-in">
+        <p className="max-w-2xl mx-auto theme-muted text-lg leading-relaxed mb-10 animate-fade-in">
           I build intelligent web applications and data-driven solutions — from AI-powered tools
           to community platforms and enterprise analytics systems.
         </p>
@@ -51,7 +51,7 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in">
           <a
             href="#projects"
-            className="w-full sm:w-auto px-8 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-medium rounded-xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/25 text-center"
+            className="w-full sm:w-auto px-8 py-3.5 glass-strong hover:bg-white/25 theme-text font-medium rounded-xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-white/10 text-center"
           >
             View My Work
           </a>
@@ -60,7 +60,7 @@ export default function Hero() {
             href="https://drive.google.com/file/d/1nuMIw_3C0kvMvbPvzL7V4uflzcdIs75O/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto px-8 py-3.5 glass hover:bg-white/10 text-gray-200 font-medium rounded-xl transition-all duration-200 hover:-translate-y-0.5 flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-8 py-3.5 glass hover:bg-white/20 theme-text font-medium rounded-xl transition-all duration-200 hover:-translate-y-0.5 flex items-center justify-center gap-2"
             aria-label="Download resume"
           >
             <Download size={16} />
@@ -74,7 +74,7 @@ export default function Hero() {
             href="https://github.com/pratstick"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 glass rounded-xl text-gray-400 hover:text-white hover:bg-white/10 transition-all duration-200 hover:-translate-y-0.5"
+            className="p-3 glass rounded-xl theme-muted hover:text-white hover:bg-white/20 transition-all duration-200 hover:-translate-y-0.5"
             aria-label="GitHub"
           >
             <Github size={20} />
@@ -83,14 +83,14 @@ export default function Hero() {
             href="https://linkedin.com/in/pratyush-k-/"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 glass rounded-xl text-gray-400 hover:text-white hover:bg-white/10 transition-all duration-200 hover:-translate-y-0.5"
+            className="p-3 glass rounded-xl theme-muted hover:text-white hover:bg-white/20 transition-all duration-200 hover:-translate-y-0.5"
             aria-label="LinkedIn"
           >
             <Linkedin size={20} />
           </a>
           <a
             href="mailto:pratyushk2005@gmail.com"
-            className="p-3 glass rounded-xl text-gray-400 hover:text-white hover:bg-white/10 transition-all duration-200 hover:-translate-y-0.5"
+            className="p-3 glass rounded-xl theme-muted hover:text-white hover:bg-white/20 transition-all duration-200 hover:-translate-y-0.5"
             aria-label="Email"
           >
             <Mail size={20} />
@@ -101,7 +101,7 @@ export default function Hero() {
       {/* Scroll indicator */}
       <a
         href="#about"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500 hover:text-gray-300 transition-colors animate-bounce"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 theme-subtle hover:text-white transition-colors animate-bounce"
         aria-label="Scroll down"
       >
         <span className="text-xs tracking-widest uppercase font-mono">scroll</span>
