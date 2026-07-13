@@ -105,6 +105,21 @@ const selectedProjects = [
   },
 ]
 
+const otherRepos = [
+  {
+    id: 1,
+    name: 'AI Invoice Extractor',
+    stack: 'Python · Streamlit · Gemini',
+    github: 'https://github.com/pratstick/AI-Invoice-Extractor',
+  },
+  {
+    id: 2,
+    name: 'GymClock',
+    stack: 'Kotlin · Jetpack Compose · Room',
+    github: 'https://github.com/pratstick/GymClock',
+  },
+]
+
 function ProjectCard({ project, featured = false }) {
   const Icon = project.icon
   return (
@@ -223,13 +238,37 @@ export default function Projects() {
             onClick={() => setShowSelected((currentValue) => !currentValue)}
             className="px-5 py-2.5 glass hover-glass theme-text text-sm rounded-lg transition-colors font-medium"
           >
-            {showSelected ? 'Hide Additional Selected Work' : 'View Additional Selected Work'}
+            {showSelected ? 'Show Less' : 'View More Projects'}
           </button>
           {showSelected && (
-            <div className="grid md:grid-cols-2 gap-6 w-full">
-              {selectedProjects.map((project) => (
-                <ProjectCard key={project.id} project={project} />
-              ))}
+            <div className="w-full space-y-8">
+              <div className="grid md:grid-cols-2 gap-6">
+                {selectedProjects.map((project) => (
+                  <ProjectCard key={project.id} project={project} />
+                ))}
+              </div>
+
+              <div className="glass rounded-2xl p-6">
+                <h3 className="text-lg font-semibold theme-text mb-4">Other Repositories</h3>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {otherRepos.map((repo) => (
+                    <a
+                      key={repo.id}
+                      href={repo.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group rounded-xl border border-white/10 px-4 py-3 hover-glass transition-colors"
+                      aria-label={`View ${repo.name} on GitHub`}
+                    >
+                      <div className="flex items-center justify-between gap-3">
+                        <p className="theme-text text-sm font-medium">{repo.name}</p>
+                        <ExternalLink size={14} className="theme-subtle group-hover:theme-text" />
+                      </div>
+                      <p className="theme-subtle text-xs mt-1">{repo.stack}</p>
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
           )}
         </div>
