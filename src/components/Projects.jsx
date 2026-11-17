@@ -1,276 +1,281 @@
-import { useState } from 'react'
-import { Github, ExternalLink, Cpu, Globe, BarChart3, BookOpen, Network, FileSearch, Bot, Sparkles } from 'lucide-react'
+import { Github, ExternalLink, Trophy, Swords, Cpu, Globe, BookOpen, BarChart3, Network, Bot } from 'lucide-react'
+import { playPipe } from '../utils/audio'
 
 const spotlightProjects = [
   {
     id: 1,
+    stage: 'BOSS STAGE 1',
     title: 'Persona-Driven Semantic Search Engine',
     description:
-      'Adobe Hackathon-winning solution using YOLOv11 layout analysis and Sentence Transformers to rank document sections for a given persona and task. Designed for fully offline, containerised deployment.',
-    icon: FileSearch,
-    iconBg: 'bg-rose-400/25',
-    iconColor: 'text-rose-400',
+      'Adobe Hackathon finalist solution using YOLOv11 layout analysis and Sentence Transformers to rank document sections for a given persona and task. Designed for fully offline, containerised deployment.',
+    icon: Trophy,
+    highlight: 'HACKATHON FINALIST 🏆',
+    highlightColor: 'bg-yellow-400 text-black border-black',
     tags: ['Python', 'YOLOv11', 'Sentence Transformers', 'PyMuPDF', 'Docker'],
-    tagColor: 'bg-rose-400/15 theme-text border-rose-300/35',
     github: 'https://github.com/pratstick/persona-driven-doc-intel',
     demo: null,
-    highlight: 'Hackathon Winner',
   },
   {
     id: 2,
+    stage: 'WORLD QUEST 2',
     title: 'ShareSphere',
     description:
       'Community platform connecting neighbors for mutual support with AI moderation, neighborhood spaces, real-time updates, and trust/reputation scoring.',
     icon: Globe,
-    iconBg: 'bg-emerald-400/25',
-    iconColor: 'text-emerald-400',
+    highlight: 'COMMUNITY FULL STACK 🌐',
+    highlightColor: 'bg-emerald-500 text-white border-black',
     tags: ['Next.js 15', 'TypeScript', 'Sanity CMS', 'Clerk', 'OpenAI', 'Tailwind CSS'],
-    tagColor: 'bg-emerald-400/15 theme-text border-emerald-300/35',
     github: 'https://github.com/pratstick/ShareSphere',
     demo: null,
-    highlight: 'Full Stack',
   },
   {
     id: 3,
+    stage: 'MAGIC LAB 3',
     title: 'The Interview Alchemist',
     description:
       'AI interview prep workspace with role-based practice sessions, Gemini-generated question/answer flows, concept pinning, and progress tracking.',
     icon: Cpu,
-    iconBg: 'bg-indigo-400/25',
-    iconColor: 'text-indigo-400',
+    highlight: 'AI PRODUCT 🧠',
+    highlightColor: 'bg-purple-500 text-white border-black',
     tags: ['React', 'Node.js', 'MongoDB', 'Express', 'Gemini AI', 'Tailwind CSS'],
-    tagColor: 'bg-indigo-400/15 theme-text border-indigo-300/35',
     github: 'https://github.com/pratstick/The-Interview-Alchemist',
     demo: null,
-    highlight: 'AI Product',
   },
 ]
 
 const selectedProjects = [
   {
     id: 4,
+    stage: 'SIDE QUEST 4',
     title: 'PaperPulse',
     description:
       'AI research digest that ingests arXiv papers, generates LLM summaries with relevance scoring, and serves a personalized feed.',
     icon: BookOpen,
-    iconBg: 'bg-sky-400/25',
-    iconColor: 'text-sky-400',
+    highlight: 'Research AI',
     tags: ['FastAPI', 'Next.js', 'TypeScript', 'OpenAI', 'SQLAlchemy'],
-    tagColor: 'bg-sky-400/15 theme-text border-sky-300/35',
     github: 'https://github.com/pratstick/PaperPulse',
     demo: null,
-    highlight: 'Research AI',
   },
   {
     id: 5,
+    stage: 'ENTERPRISE 5',
     title: 'Supply Chain Predictive Analytics',
     description:
       'Enterprise Databricks solution combining ML forecasting, transport optimization, and intelligent stock allocation.',
     icon: BarChart3,
-    iconBg: 'bg-cyan-400/25',
-    iconColor: 'text-cyan-400',
+    highlight: 'Enterprise ML',
     tags: ['Python', 'Databricks', 'XGBoost', 'Prophet', 'Spark'],
-    tagColor: 'bg-cyan-400/15 theme-text border-cyan-300/35',
     github: 'https://github.com/pratstick/supply-chain-predictive-analytics',
     demo: null,
-    highlight: 'Enterprise ML',
   },
   {
     id: 6,
+    stage: 'RAG AGENT 6',
     title: 'Multi-Agent Doc Intelligence',
     description:
       'LangGraph-based multi-agent RAG pipeline with routing, retrieval, and specialist agents for technical Q&A workflows.',
     icon: Network,
-    iconBg: 'bg-violet-400/25',
-    iconColor: 'text-violet-400',
+    highlight: 'Multi-Agent RAG',
     tags: ['Python', 'LangGraph', 'FAISS', 'Groq', 'RAG'],
-    tagColor: 'bg-violet-400/15 theme-text border-violet-300/35',
     github: 'https://github.com/pratstick/multi-agent-doc-intelligence',
     demo: null,
-    highlight: 'Multi-Agent',
   },
   {
     id: 7,
+    stage: 'BROWSER AUTOMATION 7',
     title: 'Browser MCP Agent',
     description:
       'Natural-language web automation system powered by MCP and LLM orchestration for browser control and extraction workflows.',
     icon: Bot,
-    iconBg: 'bg-amber-400/25',
-    iconColor: 'text-amber-400',
+    highlight: 'Autonomous Agent',
     tags: ['Python', 'MCP', 'GPT-4.1', 'Puppeteer', 'Streamlit'],
-    tagColor: 'bg-amber-400/15 theme-text border-amber-300/35',
     github: 'https://github.com/pratstick/browser-mcp-agent',
     demo: null,
-    highlight: 'Automation',
   },
 ]
 
-const otherRepos = [
-  {
-    id: 1,
-    name: 'AI Invoice Extractor',
-    stack: 'Python · Streamlit · Gemini',
-    github: 'https://github.com/pratstick/AI-Invoice-Extractor',
-  },
-  {
-    id: 2,
-    name: 'GymClock',
-    stack: 'Kotlin · Jetpack Compose · Room',
-    github: 'https://github.com/pratstick/GymClock',
-  },
-]
+export default function Projects({ onAddScore }) {
+  const handleInspect = () => {
+    playPipe()
+    if (onAddScore) onAddScore(250)
+  }
 
-function ProjectCard({ project, featured = false }) {
-  const Icon = project.icon
   return (
-    <article
-      className={`relative flex flex-col p-6 rounded-2xl card-hover group overflow-hidden ${
-        featured ? 'glass-strong' : 'glass'
-      }`}
-    >
-      {/* Top accent line */}
-      <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-500/50 via-purple-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-      {/* Header */}
-      <div className="flex items-start justify-between mb-4">
-        <div className={`w-12 h-12 ${project.iconBg} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200`}>
-          <Icon size={22} className={project.iconColor} />
-        </div>
-        <span className={`px-2.5 py-1 text-xs font-mono font-semibold rounded-full theme-text ${featured ? 'glass' : 'glass-strong'}`}>
-          {project.highlight}
-        </span>
-      </div>
-
-      {/* Content */}
-      <h3 className="text-lg font-bold theme-text mb-3 transition-colors">
-        {project.title}
-      </h3>
-      <p className="theme-muted text-sm leading-relaxed flex-1 mb-5">{project.description}</p>
-
-      {/* Tags */}
-      <div className="flex flex-wrap gap-1.5 mb-5">
-        {project.tags.map((tag) => (
-          <span
-            key={tag}
-            className={`px-2 py-0.5 text-xs rounded border font-medium ${project.tagColor}`}
-          >
-            {tag}
+    <section id="projects" className="py-20 px-4 relative">
+      <div className="max-w-5xl mx-auto">
+        {/* Stage Header */}
+        <div className="flex items-center gap-3 mb-6">
+          <span className="font-pixel text-xs text-red-500 bg-black px-2 py-1 border-2 border-red-500 rounded">
+            WORLD 1-4
           </span>
-        ))}
-      </div>
-
-      {/* Links */}
-      <div className="flex items-center gap-3 pt-4 border-t border-white/5">
-        <a
-          href={project.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1.5 text-xs theme-muted hover-theme-text transition-colors font-medium"
-          aria-label={`View ${project.title} on GitHub`}
-        >
-          <Github size={14} />
-          Source Code
-        </a>
-        {project.demo && (
-          <a
-            href={project.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-xs theme-muted hover-theme-text transition-colors font-medium"
-            aria-label={`View ${project.title} live demo`}
-          >
-            <ExternalLink size={14} />
-            Live Demo
-          </a>
-        )}
-      </div>
-    </article>
-  )
-}
-
-export default function Projects() {
-  const [showSelected, setShowSelected] = useState(false)
-
-  return (
-    <section id="projects" className="section-padding">
-      <div className="max-w-6xl mx-auto section-shell">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="text-indigo-400 font-mono text-sm">03.</span>
-          <span className="theme-subtle font-mono text-sm uppercase tracking-widest">Work</span>
+          <span className="font-pixel text-xs text-yellow-400 tracking-wider">
+            &gt; BOSS STAGES &amp; QUEST CLEARANCES
+          </span>
         </div>
 
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold theme-text mb-3">
-              Featured Projects
-            </h2>
-            <p className="theme-muted max-w-lg">
-              A curated, resume-focused set of projects with strongest product, AI, and engineering impact.
-            </p>
-          </div>
-          <a
-            href="https://github.com/pratstick"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-shrink-0 flex items-center gap-2 text-sm theme-secondary hover-theme-text transition-colors font-medium"
-          >
-            <Github size={16} />
-            All repos →
-          </a>
-        </div>
-
-        <div className="glass rounded-2xl px-4 py-3 border border-indigo-300/25 mb-8 inline-flex items-center gap-2">
-          <Sparkles size={15} className="text-indigo-300" />
-          <p className="text-sm theme-secondary">
-            Front section shows only the most notable work to keep the portfolio clean and recruiter-friendly.
+        {/* Section title */}
+        <div className="mb-10">
+          <h2 className="font-pixel text-2xl md:text-3xl text-white retro-shadow mb-2">
+            FEATURED <span className="text-yellow-400">QUESTS &amp; BUILDS</span>
+          </h2>
+          <p className="font-arcade text-xl text-neutral-300">
+            Real deployments, hackathon finalists &amp; intelligent applications.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6">
-          {spotlightProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} featured />
-          ))}
-        </div>
+        {/* 3 Main Spotlight Boss Quests */}
+        <div className="space-y-8 mb-16">
+          {spotlightProjects.map((project) => {
+            const IconComp = project.icon
+            return (
+              <div
+                key={project.id}
+                className="bg-[#0e101f] border-4 border-black rounded-lg p-6 md:p-8 shadow-pixel-lg relative overflow-hidden group hover:border-yellow-400 transition-all"
+              >
+                {/* Stage Flag & Badge */}
+                <div className="flex flex-wrap items-center justify-between gap-3 mb-4 border-b-2 border-neutral-800 pb-3">
+                  <div className="flex items-center gap-2 font-pixel text-xs">
+                    <span className="text-red-500 font-bold">[{project.stage}]</span>
+                    <span className="text-neutral-400 hidden sm:inline">•</span>
+                    <span className="text-yellow-300 font-sans font-medium text-xs">CLEARED ✓</span>
+                  </div>
 
-        <div className="mt-10 flex flex-col items-center gap-4">
-          <button
-            type="button"
-            onClick={() => setShowSelected((currentValue) => !currentValue)}
-            className="px-5 py-2.5 glass hover-glass theme-text text-sm rounded-lg transition-colors font-medium"
-          >
-            {showSelected ? 'Show Less' : 'View More Projects'}
-          </button>
-          {showSelected && (
-            <div className="w-full space-y-8">
-              <div className="grid md:grid-cols-2 gap-6">
-                {selectedProjects.map((project) => (
-                  <ProjectCard key={project.id} project={project} />
-                ))}
-              </div>
+                  <span
+                    className={`font-pixel text-[9px] px-2.5 py-1 rounded border-2 shadow-pixel ${project.highlightColor}`}
+                  >
+                    {project.highlight}
+                  </span>
+                </div>
 
-              <div className="glass rounded-2xl p-6">
-                <h3 className="text-lg font-semibold theme-text mb-4">Other Repositories</h3>
-                <div className="grid sm:grid-cols-2 gap-3">
-                  {otherRepos.map((repo) => (
-                    <a
-                      key={repo.id}
-                      href={repo.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group rounded-xl border border-white/10 px-4 py-3 hover-glass transition-colors"
-                      aria-label={`View ${repo.name} on GitHub`}
-                    >
-                      <div className="flex items-center justify-between gap-3">
-                        <p className="theme-text text-sm font-medium">{repo.name}</p>
-                        <ExternalLink size={14} className="theme-subtle group-hover:theme-text" />
-                      </div>
-                      <p className="theme-subtle text-xs mt-1">{repo.stack}</p>
-                    </a>
-                  ))}
+                <div className="grid md:grid-cols-12 gap-6 items-center">
+                  <div className="md:col-span-8">
+                    <h3 className="font-pixel text-lg md:text-xl text-white mb-3 group-hover:text-yellow-400 transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-neutral-300 text-sm md:text-base font-sans leading-relaxed mb-6">
+                      {project.description}
+                    </p>
+
+                    {/* Loot / Tech tags */}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="font-mono text-xs px-2.5 py-1 bg-black/80 text-yellow-300 border border-neutral-700 rounded"
+                        >
+                          +{tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Actions */}
+                    <div className="flex items-center gap-4">
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={handleInspect}
+                          className="px-4 py-2.5 bg-neutral-900 hover:bg-neutral-800 text-yellow-300 font-pixel text-[10px] rounded border-2 border-black pixel-btn flex items-center gap-2"
+                        >
+                          <Github size={14} />
+                          <span>INSPECT SOURCE [GITHUB]</span>
+                        </a>
+                      )}
+                      {project.demo && (
+                        <a
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={handleInspect}
+                          className="px-4 py-2.5 bg-green-600 hover:bg-green-500 text-white font-pixel text-[10px] rounded border-2 border-black pixel-btn flex items-center gap-2"
+                        >
+                          <ExternalLink size={14} />
+                          <span>ENTER STAGE [LIVE DEMO]</span>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Right side Icon Badge */}
+                  <div className="md:col-span-4 flex items-center justify-center">
+                    <div className="w-28 h-28 bg-black/70 border-4 border-neutral-800 rounded-lg flex flex-col items-center justify-center p-4 shadow-pixel group-hover:scale-105 group-hover:border-yellow-400 transition-all">
+                      <IconComp size={40} className="text-yellow-400 mb-2" />
+                      <span className="font-pixel text-[8px] text-neutral-400 text-center uppercase">
+                        QUEST #{project.id}
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
+            )
+          })}
+        </div>
+
+        {/* Selected Side Quests */}
+        <div className="mb-6">
+          <h3 className="font-pixel text-lg text-white mb-2 flex items-center gap-2">
+            <Swords size={18} className="text-red-500" />
+            <span>MORE ADVENTURES &amp; SYSTEMS</span>
+          </h3>
+          <p className="font-arcade text-lg text-neutral-400 mb-6">
+            Autonomous web agents, research aggregators &amp; supply-chain pipelines.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {selectedProjects.map((p) => {
+              const IconComp = p.icon
+              return (
+                <div
+                  key={p.id}
+                  className="bg-[#0e101f] border-2 border-neutral-800 hover:border-yellow-400 p-6 rounded-md shadow-pixel transition-all group flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="font-pixel text-[9px] text-red-400">[{p.stage}]</span>
+                      <span className="font-pixel text-[8px] bg-neutral-900 text-yellow-300 px-2 py-0.5 border border-neutral-700 rounded">
+                        {p.highlight}
+                      </span>
+                    </div>
+
+                    <h4 className="font-pixel text-sm text-white mb-2 group-hover:text-yellow-400 transition-colors">
+                      {p.title}
+                    </h4>
+
+                    <p className="text-neutral-300 text-xs font-sans leading-relaxed mb-4">
+                      {p.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-1.5 mb-6">
+                      {p.tags.map((t) => (
+                        <span
+                          key={t}
+                          className="font-mono text-[11px] px-2 py-0.5 bg-black text-neutral-300 border border-neutral-800 rounded"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    {p.github && (
+                      <a
+                        href={p.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={handleInspect}
+                        className="inline-flex items-center gap-2 font-pixel text-[9px] text-yellow-400 hover:text-white"
+                      >
+                        <Github size={12} />
+                        <span>VIEW REPO &gt;&gt;</span>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>
