@@ -5,53 +5,38 @@
 @layer base {
   :root {
     color-scheme: dark;
-    --bg-main: #0a0b16;
-    --bg-secondary: #121426;
-    --bg-card: #181a33;
-    --bg-hud: rgba(10, 11, 22, 0.95);
-    --border-color: #000000;
-    --text-primary: #ffffff;
-    --text-secondary: #e2e8f0;
+    --bg-main: #0c0f1d;
+    --bg-secondary: #13182c;
+    --bg-card: #182038;
+    --bg-card-hover: #1e2846;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
     --text-muted: #94a3b8;
-    --text-gold: #fcbc00;
-    --mario-red: #e52521;
-    --mario-green: #00d000;
-    --mario-sky: #5c94fc;
-    --brick-color: #b83400;
-    --question-bg: #fc9838;
-    --pipe-green: #00a800;
-    --pipe-dark: #005000;
-    --pixel-shadow: 4px 4px 0px 0px #000000;
-    --pixel-shadow-sm: 2px 2px 0px 0px #000000;
-    --pixel-shadow-lg: 6px 6px 0px 0px #000000;
+    --border-color: #000000;
+    --mario-red: #ef4444;
+    --mario-gold: #f59e0b;
+    --mario-green: #10b981;
+    --mario-sky: #38bdf8;
   }
 
   html[data-theme='light'] {
     color-scheme: light;
-    --bg-main: #5c94fc; /* Classic Mario 1-1 Sky Blue */
-    --bg-secondary: #4a82ea;
+    --bg-main: #f0f6ff;
+    --bg-secondary: #e2eefc;
     --bg-card: #ffffff;
-    --bg-hud: rgba(0, 0, 0, 0.88);
+    --bg-card-hover: #f8fafc;
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
     --border-color: #000000;
-    --text-primary: #111827;
-    --text-secondary: #1e293b;
-    --text-muted: #475569;
-    --text-gold: #b37d00;
-    --mario-red: #e52521;
-    --mario-green: #008800;
-    --mario-sky: #5c94fc;
-    --brick-color: #b83400;
-    --question-bg: #fc9838;
-    --pipe-green: #00a800;
-    --pipe-dark: #004800;
-    --pixel-shadow: 4px 4px 0px 0px #000000;
-    --pixel-shadow-sm: 2px 2px 0px 0px #000000;
-    --pixel-shadow-lg: 6px 6px 0px 0px #000000;
+    --mario-red: #dc2626;
+    --mario-gold: #d97706;
+    --mario-green: #059669;
+    --mario-sky: #0284c7;
   }
 
   html {
     scroll-behavior: smooth;
-    image-rendering: pixelated;
   }
 
   body {
@@ -63,17 +48,17 @@
   }
 }
 
-/* CRT Screen Effect */
+/* CRT Screen Effect - subtle & non-intrusive */
 .crt-overlay::before {
   content: " ";
   display: block;
   position: fixed;
   top: 0; left: 0; bottom: 0; right: 0;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.18) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
   z-index: 9999;
   background-size: 100% 3px, 6px 100%;
   pointer-events: none;
-  opacity: 0.75;
+  opacity: 0.7;
 }
 
 .crt-overlay::after {
@@ -81,12 +66,12 @@
   display: block;
   position: fixed;
   top: 0; left: 0; bottom: 0; right: 0;
-  background: radial-gradient(circle at center, transparent 65%, rgba(0, 0, 0, 0.45) 100%);
+  background: radial-gradient(circle at center, transparent 70%, rgba(0, 0, 0, 0.35) 100%);
   pointer-events: none;
   z-index: 9998;
 }
 
-/* Pixel Art Aesthetics */
+/* Pixel Art Fonts & Utilities */
 .font-pixel {
   font-family: 'Press Start 2P', cursive, monospace;
 }
@@ -95,31 +80,29 @@
   font-family: 'VT323', monospace;
 }
 
-.pixel-border {
-  border: 4px solid #000000;
-  box-shadow: 4px 4px 0px 0px #000000;
-}
-
-.pixel-border-sm {
+/* Semi-Professional Neo-Brutalist Arcade Buttons & Cards */
+.arcade-card {
+  background-color: var(--bg-card);
   border: 3px solid #000000;
-  box-shadow: 2px 2px 0px 0px #000000;
+  box-shadow: 4px 4px 0px 0px #000000;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
-.pixel-border-lg {
-  border: 4px solid #000000;
+.arcade-card:hover {
+  transform: translate(-2px, -2px);
   box-shadow: 6px 6px 0px 0px #000000;
 }
 
 .pixel-btn {
-  border: 3px solid #000000;
+  border: 2px solid #000000;
   box-shadow: 3px 3px 0px 0px #000000;
   transition: transform 0.08s ease, box-shadow 0.08s ease;
   user-select: none;
 }
 
 .pixel-btn:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0px 0px #000000;
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px 0px #000000;
 }
 
 .pixel-btn:active {
@@ -129,9 +112,9 @@
 
 /* Question Mark Block */
 .mario-question-block {
-  background: #fc9838;
-  border: 4px solid #000000;
-  box-shadow: inset 4px 4px 0px #fce0a8, inset -4px -4px 0px #a85010, 4px 4px 0px #000000;
+  background: #f59e0b;
+  border: 3px solid #000000;
+  box-shadow: inset 3px 3px 0px #fef3c7, inset -3px -3px 0px #b45309, 3px 3px 0px #000000;
   position: relative;
   cursor: pointer;
   transition: transform 0.1s ease;
@@ -141,84 +124,50 @@
 .mario-question-block::after {
   content: '';
   position: absolute;
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   background: #000000;
 }
 
 .mario-question-block::before {
-  top: 4px;
-  left: 4px;
+  top: 3px;
+  left: 3px;
 }
 
 .mario-question-block::after {
-  bottom: 4px;
-  right: 4px;
+  bottom: 3px;
+  right: 3px;
 }
 
-/* Mario Brick Block */
-.mario-brick-block {
-  background: #b83400;
-  border: 4px solid #000000;
-  box-shadow: inset 3px 3px 0px #e86830, inset -3px -3px 0px #5a1800, 4px 4px 0px #000000;
-  position: relative;
-}
-
-/* Mario Warp Pipe */
+/* Warp Pipe */
 .mario-pipe {
-  background: linear-gradient(90deg, #008800 0%, #00f800 30%, #00d000 60%, #005800 100%);
-  border: 4px solid #000000;
+  background: linear-gradient(90deg, #059669 0%, #34d399 35%, #10b981 65%, #047857 100%);
+  border: 3px solid #000000;
   position: relative;
 }
 
 .mario-pipe-top {
-  background: linear-gradient(90deg, #008800 0%, #00f800 30%, #00d000 60%, #005800 100%);
-  border: 4px solid #000000;
-  box-shadow: 4px 4px 0px #000000;
+  background: linear-gradient(90deg, #059669 0%, #34d399 35%, #10b981 65%, #047857 100%);
+  border: 3px solid #000000;
+  box-shadow: 3px 3px 0px #000000;
 }
 
-/* Text glow and shadows */
-.retro-glow-gold {
-  text-shadow: 2px 2px 0px #000, 0 0 10px rgba(252, 188, 0, 0.7);
-}
-
-.retro-glow-red {
-  text-shadow: 2px 2px 0px #000, 0 0 10px rgba(229, 37, 33, 0.7);
-}
-
+/* Text shadows */
 .retro-shadow {
-  text-shadow: 3px 3px 0px #000000;
-}
-
-.retro-shadow-sm {
   text-shadow: 2px 2px 0px #000000;
 }
 
-/* Mario Ground Pattern */
-.mario-ground {
-  background:
-    linear-gradient(to bottom, #00a800 0px, #00a800 8px, #005800 8px, #005800 12px, #c84c0c 12px, #c84c0c 100%);
-  border-top: 4px solid #000000;
+.retro-shadow-sm {
+  text-shadow: 1px 1px 0px #000000;
 }
 
 /* Floating animation helper */
 @keyframes coinHop {
   0% { transform: translateY(0) scale(1); opacity: 1; }
-  50% { transform: translateY(-35px) scale(1.2); opacity: 1; }
-  100% { transform: translateY(-50px) scale(0.9); opacity: 0; }
+  50% { transform: translateY(-30px) scale(1.15); opacity: 1; }
+  100% { transform: translateY(-45px) scale(0.9); opacity: 0; }
 }
 
 .animate-coin-hop {
   animation: coinHop 0.6s ease-out forwards;
-}
-
-/* Invincible Star Rainbow Pulse */
-@keyframes rainbowGlow {
-  0% { filter: hue-rotate(0deg) drop-shadow(0 0 12px #ff0055); }
-  50% { filter: hue-rotate(180deg) drop-shadow(0 0 18px #00ffff); }
-  100% { filter: hue-rotate(360deg) drop-shadow(0 0 12px #ff0055); }
-}
-
-.invincible-glow {
-  animation: rainbowGlow 1.2s linear infinite;
 }

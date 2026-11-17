@@ -4,39 +4,39 @@ import { playPipe } from '../utils/audio'
 const spotlightProjects = [
   {
     id: 1,
-    stage: 'BOSS STAGE 1',
+    stage: 'STAGE 1',
     title: 'Persona-Driven Semantic Search Engine',
     description:
       'Adobe Hackathon finalist solution using YOLOv11 layout analysis and Sentence Transformers to rank document sections for a given persona and task. Designed for fully offline, containerised deployment.',
     icon: Trophy,
     highlight: 'HACKATHON FINALIST 🏆',
-    highlightColor: 'bg-yellow-400 text-black border-black',
+    highlightBadge: 'bg-amber-100 text-amber-900 dark:bg-amber-950/60 dark:text-amber-300 border-amber-500',
     tags: ['Python', 'YOLOv11', 'Sentence Transformers', 'PyMuPDF', 'Docker'],
     github: 'https://github.com/pratstick/persona-driven-doc-intel',
     demo: null,
   },
   {
     id: 2,
-    stage: 'WORLD QUEST 2',
+    stage: 'STAGE 2',
     title: 'ShareSphere',
     description:
       'Community platform connecting neighbors for mutual support with AI moderation, neighborhood spaces, real-time updates, and trust/reputation scoring.',
     icon: Globe,
     highlight: 'COMMUNITY FULL STACK 🌐',
-    highlightColor: 'bg-emerald-500 text-white border-black',
+    highlightBadge: 'bg-emerald-100 text-emerald-900 dark:bg-emerald-950/60 dark:text-emerald-300 border-emerald-500',
     tags: ['Next.js 15', 'TypeScript', 'Sanity CMS', 'Clerk', 'OpenAI', 'Tailwind CSS'],
     github: 'https://github.com/pratstick/ShareSphere',
     demo: null,
   },
   {
     id: 3,
-    stage: 'MAGIC LAB 3',
+    stage: 'STAGE 3',
     title: 'The Interview Alchemist',
     description:
       'AI interview prep workspace with role-based practice sessions, Gemini-generated question/answer flows, concept pinning, and progress tracking.',
     icon: Cpu,
     highlight: 'AI PRODUCT 🧠',
-    highlightColor: 'bg-purple-500 text-white border-black',
+    highlightBadge: 'bg-purple-100 text-purple-900 dark:bg-purple-950/60 dark:text-purple-300 border-purple-500',
     tags: ['React', 'Node.js', 'MongoDB', 'Express', 'Gemini AI', 'Tailwind CSS'],
     github: 'https://github.com/pratstick/The-Interview-Alchemist',
     demo: null,
@@ -46,7 +46,7 @@ const spotlightProjects = [
 const selectedProjects = [
   {
     id: 4,
-    stage: 'SIDE QUEST 4',
+    stage: 'STAGE 4',
     title: 'PaperPulse',
     description:
       'AI research digest that ingests arXiv papers, generates LLM summaries with relevance scoring, and serves a personalized feed.',
@@ -58,7 +58,7 @@ const selectedProjects = [
   },
   {
     id: 5,
-    stage: 'ENTERPRISE 5',
+    stage: 'STAGE 5',
     title: 'Supply Chain Predictive Analytics',
     description:
       'Enterprise Databricks solution combining ML forecasting, transport optimization, and intelligent stock allocation.',
@@ -70,7 +70,7 @@ const selectedProjects = [
   },
   {
     id: 6,
-    stage: 'RAG AGENT 6',
+    stage: 'STAGE 6',
     title: 'Multi-Agent Doc Intelligence',
     description:
       'LangGraph-based multi-agent RAG pipeline with routing, retrieval, and specialist agents for technical Q&A workflows.',
@@ -82,7 +82,7 @@ const selectedProjects = [
   },
   {
     id: 7,
-    stage: 'BROWSER AUTOMATION 7',
+    stage: 'STAGE 7',
     title: 'Browser MCP Agent',
     description:
       'Natural-language web automation system powered by MCP and LLM orchestration for browser control and extraction workflows.',
@@ -101,47 +101,49 @@ export default function Projects({ onAddScore }) {
   }
 
   return (
-    <section id="projects" className="py-20 px-4 relative">
+    <section id="projects" className="py-16 md:py-24 px-4 relative">
       <div className="max-w-5xl mx-auto">
-        {/* Stage Header */}
-        <div className="flex items-center gap-3 mb-6">
-          <span className="font-pixel text-xs text-red-500 bg-black px-2 py-1 border-2 border-red-500 rounded">
-            WORLD 1-4
+        {/* World Label */}
+        <div className="flex items-center gap-2 mb-4">
+          <span className="font-pixel text-[9px] text-red-500 bg-red-500/10 px-2 py-1 border border-red-500/30 rounded">
+            STAGE 1-4
           </span>
-          <span className="font-pixel text-xs text-yellow-400 tracking-wider">
-            &gt; BOSS STAGES &amp; QUEST CLEARANCES
+          <span className="font-mono text-xs uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+            Featured Projects &amp; Boss Builds
           </span>
         </div>
 
-        {/* Section title */}
-        <div className="mb-10">
-          <h2 className="font-pixel text-2xl md:text-3xl text-white retro-shadow mb-2">
-            FEATURED <span className="text-yellow-400">QUESTS &amp; BUILDS</span>
-          </h2>
-          <p className="font-arcade text-xl text-neutral-300">
-            Real deployments, hackathon finalists &amp; intelligent applications.
-          </p>
-        </div>
+        {/* Section Heading */}
+        <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-neutral-900 dark:text-white mb-3 font-sans">
+          Featured Work &amp; Case Studies
+        </h2>
+        <p className="text-neutral-600 dark:text-neutral-400 text-base max-w-xl mb-10">
+          Production systems, hackathon finalists, and intelligent full-stack applications.
+        </p>
 
-        {/* 3 Main Spotlight Boss Quests */}
+        {/* Spotlight Projects */}
         <div className="space-y-8 mb-16">
           {spotlightProjects.map((project) => {
             const IconComp = project.icon
             return (
               <div
                 key={project.id}
-                className="bg-[#0e101f] border-4 border-black rounded-lg p-6 md:p-8 shadow-pixel-lg relative overflow-hidden group hover:border-yellow-400 transition-all"
+                className="arcade-card rounded-lg p-6 md:p-8 bg-white dark:bg-[#12172b] relative group"
               >
-                {/* Stage Flag & Badge */}
-                <div className="flex flex-wrap items-center justify-between gap-3 mb-4 border-b-2 border-neutral-800 pb-3">
-                  <div className="flex items-center gap-2 font-pixel text-xs">
-                    <span className="text-red-500 font-bold">[{project.stage}]</span>
+                {/* Header Flag */}
+                <div className="flex flex-wrap items-center justify-between gap-3 mb-4 pb-3 border-b border-neutral-200 dark:border-neutral-800">
+                  <div className="flex items-center gap-2">
+                    <span className="font-pixel text-[9px] text-red-500 font-bold">
+                      [{project.stage}]
+                    </span>
                     <span className="text-neutral-400 hidden sm:inline">•</span>
-                    <span className="text-yellow-300 font-sans font-medium text-xs">CLEARED ✓</span>
+                    <span className="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-semibold">
+                      COMPLETE ✓
+                    </span>
                   </div>
 
                   <span
-                    className={`font-pixel text-[9px] px-2.5 py-1 rounded border-2 shadow-pixel ${project.highlightColor}`}
+                    className={`text-xs font-mono font-semibold px-2.5 py-1 rounded-md border ${project.highlightBadge}`}
                   >
                     {project.highlight}
                   </span>
@@ -149,10 +151,10 @@ export default function Projects({ onAddScore }) {
 
                 <div className="grid md:grid-cols-12 gap-6 items-center">
                   <div className="md:col-span-8">
-                    <h3 className="font-pixel text-lg md:text-xl text-white mb-3 group-hover:text-yellow-400 transition-colors">
+                    <h3 className="text-xl md:text-2xl font-bold text-neutral-900 dark:text-white mb-3 group-hover:text-red-500 transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-neutral-300 text-sm md:text-base font-sans leading-relaxed mb-6">
+                    <p className="text-neutral-600 dark:text-neutral-300 text-sm md:text-base leading-relaxed mb-6 font-sans">
                       {project.description}
                     </p>
 
@@ -161,25 +163,25 @@ export default function Projects({ onAddScore }) {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="font-mono text-xs px-2.5 py-1 bg-black/80 text-yellow-300 border border-neutral-700 rounded"
+                          className="font-mono text-xs px-2.5 py-1 bg-neutral-100 dark:bg-[#171f3a] text-neutral-800 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-700 rounded-md"
                         >
-                          +{tag}
+                          {tag}
                         </span>
                       ))}
                     </div>
 
                     {/* Actions */}
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-3">
                       {project.github && (
                         <a
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={handleInspect}
-                          className="px-4 py-2.5 bg-neutral-900 hover:bg-neutral-800 text-yellow-300 font-pixel text-[10px] rounded border-2 border-black pixel-btn flex items-center gap-2"
+                          className="px-4 py-2.5 bg-neutral-900 hover:bg-neutral-800 text-white font-sans font-semibold text-xs rounded-md pixel-btn flex items-center gap-2"
                         >
-                          <Github size={14} />
-                          <span>INSPECT SOURCE [GITHUB]</span>
+                          <Github size={15} />
+                          <span>View Code [GitHub]</span>
                         </a>
                       )}
                       {project.demo && (
@@ -188,20 +190,20 @@ export default function Projects({ onAddScore }) {
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={handleInspect}
-                          className="px-4 py-2.5 bg-green-600 hover:bg-green-500 text-white font-pixel text-[10px] rounded border-2 border-black pixel-btn flex items-center gap-2"
+                          className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-sans font-semibold text-xs rounded-md pixel-btn flex items-center gap-2"
                         >
-                          <ExternalLink size={14} />
-                          <span>ENTER STAGE [LIVE DEMO]</span>
+                          <ExternalLink size={15} />
+                          <span>Live Demo</span>
                         </a>
                       )}
                     </div>
                   </div>
 
-                  {/* Right side Icon Badge */}
+                  {/* Icon Badge Right */}
                   <div className="md:col-span-4 flex items-center justify-center">
-                    <div className="w-28 h-28 bg-black/70 border-4 border-neutral-800 rounded-lg flex flex-col items-center justify-center p-4 shadow-pixel group-hover:scale-105 group-hover:border-yellow-400 transition-all">
-                      <IconComp size={40} className="text-yellow-400 mb-2" />
-                      <span className="font-pixel text-[8px] text-neutral-400 text-center uppercase">
+                    <div className="w-24 h-24 sm:w-28 sm:h-28 bg-neutral-100 dark:bg-[#18203c] border-2 border-black rounded-lg flex flex-col items-center justify-center p-3 shadow-pixel-sm group-hover:scale-105 transition-all">
+                      <IconComp size={36} className="text-amber-500 mb-1" />
+                      <span className="font-pixel text-[8px] text-neutral-500 dark:text-neutral-400 uppercase">
                         QUEST #{project.id}
                       </span>
                     </div>
@@ -213,68 +215,65 @@ export default function Projects({ onAddScore }) {
         </div>
 
         {/* Selected Side Quests */}
-        <div className="mb-6">
-          <h3 className="font-pixel text-lg text-white mb-2 flex items-center gap-2">
-            <Swords size={18} className="text-red-500" />
-            <span>MORE ADVENTURES &amp; SYSTEMS</span>
+        <div>
+          <h3 className="text-xl font-bold text-neutral-900 dark:text-white mb-2 flex items-center gap-2 font-sans">
+            <Swords size={20} className="text-red-500" />
+            <span>Additional Projects &amp; Experiments</span>
           </h3>
-          <p className="font-arcade text-lg text-neutral-400 mb-6">
-            Autonomous web agents, research aggregators &amp; supply-chain pipelines.
+          <p className="text-neutral-600 dark:text-neutral-400 text-sm mb-6">
+            Autonomous web agents, research aggregators, and supply-chain ML pipelines.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {selectedProjects.map((p) => {
-              const IconComp = p.icon
-              return (
-                <div
-                  key={p.id}
-                  className="bg-[#0e101f] border-2 border-neutral-800 hover:border-yellow-400 p-6 rounded-md shadow-pixel transition-all group flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="font-pixel text-[9px] text-red-400">[{p.stage}]</span>
-                      <span className="font-pixel text-[8px] bg-neutral-900 text-yellow-300 px-2 py-0.5 border border-neutral-700 rounded">
-                        {p.highlight}
-                      </span>
-                    </div>
-
-                    <h4 className="font-pixel text-sm text-white mb-2 group-hover:text-yellow-400 transition-colors">
-                      {p.title}
-                    </h4>
-
-                    <p className="text-neutral-300 text-xs font-sans leading-relaxed mb-4">
-                      {p.description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-1.5 mb-6">
-                      {p.tags.map((t) => (
-                        <span
-                          key={t}
-                          className="font-mono text-[11px] px-2 py-0.5 bg-black text-neutral-300 border border-neutral-800 rounded"
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
+            {selectedProjects.map((p) => (
+              <div
+                key={p.id}
+                className="arcade-card rounded-lg p-5 bg-white dark:bg-[#12172b] flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="font-pixel text-[9px] text-red-500">[{p.stage}]</span>
+                    <span className="text-xs font-mono font-medium px-2 py-0.5 rounded bg-neutral-100 dark:bg-[#171f3a] text-neutral-700 dark:text-neutral-300 border border-neutral-300 dark:border-neutral-700">
+                      {p.highlight}
+                    </span>
                   </div>
 
-                  <div>
-                    {p.github && (
-                      <a
-                        href={p.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={handleInspect}
-                        className="inline-flex items-center gap-2 font-pixel text-[9px] text-yellow-400 hover:text-white"
+                  <h4 className="text-lg font-bold text-neutral-900 dark:text-white mb-2">
+                    {p.title}
+                  </h4>
+
+                  <p className="text-neutral-600 dark:text-neutral-300 text-xs leading-relaxed mb-4 font-sans">
+                    {p.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-1.5 mb-5">
+                    {p.tags.map((t) => (
+                      <span
+                        key={t}
+                        className="font-mono text-[11px] px-2 py-0.5 bg-neutral-100 dark:bg-[#171f3a] text-neutral-700 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-800 rounded"
                       >
-                        <Github size={12} />
-                        <span>VIEW REPO &gt;&gt;</span>
-                      </a>
-                    )}
+                        {t}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              )
-            })}
+
+                <div>
+                  {p.github && (
+                    <a
+                      href={p.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={handleInspect}
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-600 dark:text-amber-400 hover:underline"
+                    >
+                      <Github size={13} />
+                      <span>Explore Repository →</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -1,185 +1,165 @@
 import { MarioMushroom, MarioFlower, MarioStar, MarioCoin } from './PixelSprites'
-import { Zap, Award, Heart } from 'lucide-react'
+import { Zap, Award, Heart, Code2, Globe, Cpu } from 'lucide-react'
 import { playPowerUp } from '../utils/audio'
 
 const powerUpCards = [
   {
     icon: MarioMushroom,
-    title: 'Full Stack Growth',
     badge: 'LVL 99',
+    title: 'Full Stack Development',
     desc: 'Building end-to-end applications with React, Next.js, Node.js, and modern high-speed tooling.',
-    color: 'border-red-500 bg-red-950/40 text-red-400',
+    accent: 'border-red-500 bg-red-500/5 dark:bg-red-950/20 text-red-600 dark:text-red-400',
   },
   {
     icon: MarioFlower,
-    title: 'AI & Machine Learning',
     badge: 'FIRE POWER',
+    title: 'AI & Machine Learning',
     desc: 'Integrating LLMs, Gemini, OpenAI, and ML pipelines into real-world products that solve real problems.',
-    color: 'border-orange-500 bg-orange-950/40 text-orange-400',
+    accent: 'border-amber-500 bg-amber-500/5 dark:bg-amber-950/20 text-amber-600 dark:text-amber-400',
   },
   {
     icon: MarioStar,
-    title: 'Community Impact',
     badge: 'STAR POWER',
+    title: 'Community Impact',
     desc: 'Designing neighborhood platforms and community software that connect people and spark real support.',
-    color: 'border-yellow-500 bg-yellow-950/40 text-yellow-400',
+    accent: 'border-yellow-500 bg-yellow-500/5 dark:bg-yellow-950/20 text-yellow-600 dark:text-yellow-400',
   },
   {
     icon: MarioCoin,
-    title: 'Clean & Scalable Code',
-    badge: '100 PTS',
-    desc: 'Writing maintainable, robust architecture focused on speed, modularity, and best engineering practices.',
-    color: 'border-green-500 bg-green-950/40 text-green-400',
+    badge: 'CLEAN CODE',
+    title: 'Scalable Architecture',
+    desc: 'Writing maintainable, robust architecture focused on performance, modularity, and best practices.',
+    accent: 'border-emerald-500 bg-emerald-500/5 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-400',
   },
 ]
 
 export default function About() {
   return (
-    <section id="about" className="py-20 px-4 relative">
+    <section id="about" className="py-16 md:py-24 px-4 relative">
       <div className="max-w-5xl mx-auto">
-        {/* World header banner */}
-        <div className="flex items-center gap-3 mb-6">
-          <span className="font-pixel text-xs text-red-500 bg-black px-2 py-1 border-2 border-red-500 rounded">
-            WORLD 1-2
+        {/* World Label */}
+        <div className="flex items-center gap-2 mb-4">
+          <span className="font-pixel text-[9px] text-red-500 bg-red-500/10 px-2 py-1 border border-red-500/30 rounded">
+            STAGE 1-2
           </span>
-          <span className="font-pixel text-xs text-yellow-400 tracking-wider">
-            &gt; PLAYER STATS &amp; ORIGIN STORY
+          <span className="font-mono text-xs uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+            About &amp; Player Lore
           </span>
         </div>
 
-        {/* Main Card Shell */}
-        <div className="bg-[#0e101f] border-4 border-black p-6 md:p-8 rounded-lg shadow-pixel-lg">
-          <div className="grid lg:grid-cols-12 gap-8 items-start">
-            {/* Left Column: Player Stat Sheet (5 cols) */}
-            <div className="lg:col-span-5 bg-black border-4 border-neutral-700 p-5 rounded-md text-white font-pixel shadow-pixel">
-              <div className="flex items-center justify-between border-b-2 border-neutral-800 pb-3 mb-4">
-                <span className="text-yellow-400 text-xs">PLAYER 1: PRATYUSH</span>
-                <span className="text-green-400 text-[10px]">LVL 99</span>
-              </div>
+        {/* Section Heading */}
+        <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-neutral-900 dark:text-white mb-8 font-sans">
+          Building things that <span className="text-red-500">matter</span>
+        </h2>
 
-              {/* Character Specs */}
-              <div className="space-y-3 text-[10px]">
-                <div>
-                  <div className="flex justify-between mb-1">
-                    <span className="text-red-400 flex items-center gap-1">
-                      <Heart size={10} className="fill-red-500" /> HP (ENERGY)
-                    </span>
-                    <span className="text-neutral-300">100 / 100</span>
-                  </div>
-                  <div className="w-full bg-neutral-800 h-2.5 rounded-sm overflow-hidden border border-neutral-600">
-                    <div className="bg-red-500 h-full w-full" />
-                  </div>
-                </div>
+        {/* Main Grid: Narrative (Left) + RPG Stat Card (Right) */}
+        <div className="grid lg:grid-cols-12 gap-8 items-start mb-10">
+          {/* Left: Professional Story Text (7 cols) */}
+          <div className="lg:col-span-7 space-y-4 text-neutral-700 dark:text-neutral-300 text-base md:text-lg leading-relaxed">
+            <p>
+              I&apos;m a full stack developer and AI engineer with a passion for crafting web
+              applications that blend clean, intuitive interfaces with intelligent, resilient backends.
+              My work spans from consumer-facing community platforms to enterprise-grade analytics pipelines.
+            </p>
+            <p>
+              Whether it&apos;s wiring up a Gemini AI model to help developers ace technical interviews,
+              building a neighborhood mutual-help network, or optimizing supply chains with XGBoost and
+              Prophet — I enjoy tackling real problems with elegant, maintainable code.
+            </p>
 
-                <div>
-                  <div className="flex justify-between mb-1">
-                    <span className="text-blue-400 flex items-center gap-1">
-                      <Zap size={10} className="fill-blue-400" /> MANA (CODE FUEL)
-                    </span>
-                    <span className="text-neutral-300">9999 / 9999</span>
-                  </div>
-                  <div className="w-full bg-neutral-800 h-2.5 rounded-sm overflow-hidden border border-neutral-600">
-                    <div className="bg-blue-500 h-full w-full" />
-                  </div>
-                </div>
-
-                <div className="border-t border-neutral-800 pt-3 space-y-2 text-neutral-300">
-                  <div className="flex justify-between">
-                    <span className="text-neutral-400">CLASS:</span>
-                    <span className="text-yellow-300">Full Stack / AI Wizard</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-neutral-400">GUILD:</span>
-                    <span className="text-cyan-300">Open Source / Builders</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-neutral-400">TROPHY:</span>
-                    <span className="text-yellow-400 flex items-center gap-1">
-                      <Award size={10} /> Adobe Hackathon Finalist
-                    </span>
-                  </div>
-                </div>
-
-                {/* Badges / Buffs */}
-                <div className="border-t border-neutral-800 pt-3">
-                  <span className="text-[9px] text-neutral-400 block mb-2">ACTIVE BUFFS:</span>
-                  <div className="flex flex-wrap gap-1.5">
-                    <span className="px-1.5 py-0.5 bg-yellow-950 border border-yellow-600 text-yellow-300 text-[8px]">
-                      +50 SPEED
-                    </span>
-                    <span className="px-1.5 py-0.5 bg-purple-950 border border-purple-600 text-purple-300 text-[8px]">
-                      +99 LLM LOGIC
-                    </span>
-                    <span className="px-1.5 py-0.5 bg-green-950 border border-green-600 text-green-300 text-[8px]">
-                      CLEAN ARCHITECTURE
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column: Narrative Lore & Dialogue Box (7 cols) */}
-            <div className="lg:col-span-7 flex flex-col justify-between">
-              <div>
-                <h2 className="font-pixel text-2xl md:text-3xl text-white retro-shadow mb-4">
-                  BUILDING THINGS THAT <span className="text-yellow-400">MATTER</span>
-                </h2>
-
-                {/* RPG Dialogue Container */}
-                <div className="bg-black/80 border-2 border-white/60 p-5 rounded-md font-arcade text-xl md:text-2xl text-neutral-200 leading-relaxed space-y-3 mb-6 shadow-pixel">
-                  <p>
-                    &gt; &quot;I&apos;m a full stack developer and AI engineer with a passion for crafting web
-                    applications that blend clean interfaces with intelligent backends. My work spans
-                    from consumer-facing community platforms to enterprise-grade analytics pipelines.&quot;
-                  </p>
-                  <p>
-                    &gt; &quot;Whether it&apos;s wiring up a Gemini AI model to help developers ace interviews,
-                    building a neighborhood help network, or optimizing supply chains with XGBoost and
-                    Prophet — I enjoy tackling real problems with elegant, maintainable code.&quot;
-                  </p>
-                </div>
-
-                {/* Quest tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {['OPEN FOR HIRES', 'PRODUCT FOCUSED', 'RAPID PROTOTYPER', 'AI INTEGRATOR'].map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2.5 py-1 font-pixel text-[9px] bg-neutral-900 text-yellow-300 border-2 border-black rounded pixel-btn"
-                    >
-                      ★ {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom Grid: 4 Power-Up Ability Cards */}
-          <div className="mt-8 pt-8 border-t-2 border-neutral-800 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {powerUpCards.map((card) => {
-              const IconComp = card.icon
-              return (
-                <div
-                  key={card.title}
-                  onClick={() => playPowerUp()}
-                  className={`p-4 rounded-md border-2 ${card.color} bg-black/60 shadow-pixel pixel-btn cursor-pointer group transition-all`}
+            {/* Quick Status Tags */}
+            <div className="pt-4 flex flex-wrap gap-2">
+              {['Open to Opportunities', 'Product-Focused', 'Impact-Driven', 'Fast Learner'].map((tag) => (
+                <span
+                  key={tag}
+                  className="px-3 py-1 text-xs font-mono font-medium bg-neutral-100 dark:bg-[#151c32] text-neutral-800 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-700 rounded-md shadow-pixel-sm"
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <IconComp className="w-8 h-8 group-hover:scale-110 transition-transform" />
-                    <span className="font-pixel text-[8px] px-1.5 py-0.5 bg-black border border-current rounded">
-                      {card.badge}
-                    </span>
-                  </div>
-                  <h3 className="font-pixel text-xs text-white mb-2 group-hover:text-yellow-300 transition-colors">
-                    {card.title}
-                  </h3>
-                  <p className="text-xs text-neutral-300 font-sans leading-relaxed">
-                    {card.desc}
-                  </p>
-                </div>
-              )
-            })}
+                  ✓ {tag}
+                </span>
+              ))}
+            </div>
           </div>
+
+          {/* Right: Quirky Character Stats Sheet (5 cols) */}
+          <div className="lg:col-span-5 arcade-card p-5 rounded-lg bg-white dark:bg-[#12172b]">
+            <div className="flex items-center justify-between border-b border-neutral-200 dark:border-neutral-800 pb-3 mb-4">
+              <span className="font-sans font-bold text-sm text-neutral-900 dark:text-white">
+                Player Profile: Pratyush
+              </span>
+              <span className="font-pixel text-[9px] text-emerald-600 dark:text-emerald-400">
+                LVL 99
+              </span>
+            </div>
+
+            <div className="space-y-3.5 text-xs">
+              {/* HP Bar */}
+              <div>
+                <div className="flex justify-between font-mono text-[11px] mb-1">
+                  <span className="text-red-500 font-semibold flex items-center gap-1">
+                    <Heart size={11} className="fill-red-500" /> ENERGY (HP)
+                  </span>
+                  <span className="text-neutral-500 dark:text-neutral-400">100 / 100</span>
+                </div>
+                <div className="w-full bg-neutral-200 dark:bg-neutral-800 h-2 rounded-full overflow-hidden border border-black/30">
+                  <div className="bg-red-500 h-full w-full rounded-full" />
+                </div>
+              </div>
+
+              {/* Mana Bar */}
+              <div>
+                <div className="flex justify-between font-mono text-[11px] mb-1">
+                  <span className="text-sky-500 font-semibold flex items-center gap-1">
+                    <Zap size={11} className="fill-sky-500" /> CODE FUEL (MP)
+                  </span>
+                  <span className="text-neutral-500 dark:text-neutral-400">9999 / 9999</span>
+                </div>
+                <div className="w-full bg-neutral-200 dark:bg-neutral-800 h-2 rounded-full overflow-hidden border border-black/30">
+                  <div className="bg-sky-500 h-full w-full rounded-full" />
+                </div>
+              </div>
+
+              {/* Specs */}
+              <div className="border-t border-neutral-200 dark:border-neutral-800 pt-3 space-y-2 font-mono text-[11px]">
+                <div className="flex justify-between">
+                  <span className="text-neutral-500 dark:text-neutral-400">ROLE:</span>
+                  <span className="font-semibold text-neutral-900 dark:text-white">Full Stack &amp; AI Engineer</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-neutral-500 dark:text-neutral-400">HONOR:</span>
+                  <span className="font-semibold text-amber-600 dark:text-amber-400 flex items-center gap-1">
+                    <Award size={12} /> Adobe Hackathon Finalist
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 4 Ability Cards */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {powerUpCards.map((card) => {
+            const IconComp = card.icon
+            return (
+              <div
+                key={card.title}
+                onClick={() => playPowerUp()}
+                className={`p-4 rounded-lg border-2 ${card.accent} shadow-pixel-sm hover:-translate-y-1 transition-all cursor-pointer group`}
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <IconComp className="w-7 h-7 group-hover:scale-110 transition-transform" />
+                  <span className="font-pixel text-[8px] px-1.5 py-0.5 rounded bg-black/10 dark:bg-white/10 font-bold">
+                    {card.badge}
+                  </span>
+                </div>
+                <h3 className="font-sans font-bold text-sm text-neutral-900 dark:text-white mb-1.5">
+                  {card.title}
+                </h3>
+                <p className="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed font-sans">
+                  {card.desc}
+                </p>
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

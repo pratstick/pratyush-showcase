@@ -17,7 +17,7 @@ function getAudioContext() {
   return audioCtx
 }
 
-let isMuted = false
+let isMuted = true
 
 export function setMuted(muted) {
   isMuted = muted
